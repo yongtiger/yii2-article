@@ -1,5 +1,5 @@
 {
-    "name": "yongtiger/article",
+    "name": "yongtiger/yii2-article",
     "description": "",
     "type": "php",
     "keywords": ["article","post","comment","category","tag"],
@@ -18,7 +18,9 @@
     ],
     "homepage" : "http://www.branbook.cc",
     "require": {
-        "php": ">=5.5"
+        "php": ">=5.5",
+        "yiisoft/yii2": "*",
+        "yiisoft/yii2-bootstrap": "*"
     },
     "autoload": {
         "psr-4": {
