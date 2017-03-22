@@ -1,0 +1,28 @@
+{
+    "name": "yongtiger/article",
+    "description": "",
+    "type": "php",
+    "keywords": ["article","post","comment","category","tag"],
+    "license": "MIT",
+    "support": {
+        "issues": "https://github.com/yongtiger/article/issues",
+        "forum": "http://www.yiiframework.com/forum/",
+        "source": "https://github.com/yongtiger/article"
+    },
+    "authors": [
+        {
+            "name": "Yong Tiger",
+            "email": "tigeryang.brainbook@outlook.com",
+            "homepage": "http://www.branbook.cc/yongtiger"
+        }
+    ],
+    "homepage" : "http://www.branbook.cc",
+    "require": {
+        "php": ">=5.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "yongtiger\\article\\": "src"
+        }
+    }
+}
