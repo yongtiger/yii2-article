@@ -1,9 +1,19 @@
-<?php
-///[yii2-brainblog_v0.10.0_f0.9.3_post_comment]
-namespace frontend\models;
+<?php ///[Yii2 article]
+
+/**
+ * Yii2 article
+ *
+ * @link        http://www.brainbook.cc
+ * @see         https://github.com/yongtiger/yii2-article
+ * @author      Tiger Yong <tigeryang.brainbook@outlook.com>
+ * @copyright   Copyright (c) 2017 BrainBook.CC
+ * @license     http://opensource.org/licenses/MIT
+ */
+
+namespace yongtiger\article\models;
 
 use Yii;
-///[yii2-brainblog_v0.10.0_f0.9.3_post_comment]TimestampBehavior、BlameableBehavior
+use yii\db\ActiveRecord;
 use yii\behaviors\TimestampBehavior;
 use yii\behaviors\BlameableBehavior;
 
@@ -26,7 +36,7 @@ use yii\behaviors\BlameableBehavior;
  * @property Post $post
  * @property User $user
  */
-class Comment extends \yii\db\ActiveRecord
+class Comment extends ActiveRecord
 {
     /**
      * @inheritdoc

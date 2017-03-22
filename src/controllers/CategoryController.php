@@ -1,12 +1,23 @@
-<?php
-///[yii2-brainblog_v0.3.1_f0.3.0_tree-manager]Category
-namespace frontend\controllers;
+<?php ///[Yii2 article]
+
+/**
+ * Yii2 article
+ *
+ * @link        http://www.brainbook.cc
+ * @see         https://github.com/yongtiger/yii2-article
+ * @author      Tiger Yong <tigeryang.brainbook@outlook.com>
+ * @copyright   Copyright (c) 2017 BrainBook.CC
+ * @license     http://opensource.org/licenses/MIT
+ */
+
+namespace yongtiger\article\controllers;
 
 use Yii;
-use frontend\models\Category;
+use yii\web\Controller;
 use yii\helpers\Url;
+use yongtiger\article\models\Category;
 
-class CategoryController extends \yii\web\Controller {
+class CategoryController extends Controller {
     public function actionIndex()
     {
         return $this->render('index');

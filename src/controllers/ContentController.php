@@ -1,13 +1,23 @@
-<?php
+<?php ///[Yii2 article]
 
-namespace frontend\controllers;
+/**
+ * Yii2 article
+ *
+ * @link        http://www.brainbook.cc
+ * @see         https://github.com/yongtiger/yii2-article
+ * @author      Tiger Yong <tigeryang.brainbook@outlook.com>
+ * @copyright   Copyright (c) 2017 BrainBook.CC
+ * @license     http://opensource.org/licenses/MIT
+ */
+
+namespace yongtiger\article\controllers;
 
 use Yii;
-use frontend\models\Content;
-use frontend\models\ContentSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yongtiger\article\models\Content;
+use yongtiger\article\models\ContentSearch;
 
 /**
  * ContentController implements the CRUD actions for Content model.

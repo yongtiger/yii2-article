@@ -1,13 +1,23 @@
-<?php
-///[yii2-brainblog_v0.10.0_f0.9.3_post_comment]
-namespace frontend\controllers;
+<?php ///[Yii2 article]
+
+/**
+ * Yii2 article
+ *
+ * @link        http://www.brainbook.cc
+ * @see         https://github.com/yongtiger/yii2-article
+ * @author      Tiger Yong <tigeryang.brainbook@outlook.com>
+ * @copyright   Copyright (c) 2017 BrainBook.CC
+ * @license     http://opensource.org/licenses/MIT
+ */
+
+namespace yongtiger\article\controllers;
 
 use Yii;
-use frontend\models\Comment;
-use frontend\models\CommentSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yongtiger\article\models\Comment;
+use yongtiger\article\models\CommentSearch;
 
 /**
  * CommentController implements the CRUD actions for Comment model.

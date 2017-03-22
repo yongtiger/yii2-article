@@ -4,10 +4,10 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
 /* @var $this yii\web\View */
-/* @var $model frontend\models\CommentSearch */
+/* @var $model yongtiger\article\models\CommentSearch */
 /* @var $form yii\widgets\ActiveForm */
-?>
 
+?>
 <div class="comment-search">
 
     <?php $form = ActiveForm::begin([

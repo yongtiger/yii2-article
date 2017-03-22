@@ -1,8 +1,19 @@
-<?php
+<?php ///[Yii2 article]
 
-namespace frontend\models;
+/**
+ * Yii2 article
+ *
+ * @link        http://www.brainbook.cc
+ * @see         https://github.com/yongtiger/yii2-article
+ * @author      Tiger Yong <tigeryang.brainbook@outlook.com>
+ * @copyright   Copyright (c) 2017 BrainBook.CC
+ * @license     http://opensource.org/licenses/MIT
+ */
+
+namespace yongtiger\article\models;
 
 use Yii;
+use yii\db\ActiveRecord;
 use yii\behaviors\TimestampBehavior;
 use yii\behaviors\BlameableBehavior;    ///[yii2-brainblog_v0.6.0_f0.5.1_post_user_id_BlameableBehavior]
 use creocoder\taggable\TaggableBehavior;   ///[yii2-brainblog_v0.4.1_f0.3.3_tag]creocoder/yii2-taggable]
@@ -29,7 +40,7 @@ use creocoder\taggable\TaggableBehavior;   ///[yii2-brainblog_v0.4.1_f0.3.3_tag]
  * @property PostTagAssn[] $postTagAssns
  * @property Tag[] $tags
  */
-class Post extends \yii\db\ActiveRecord
+class Post extends ActiveRecord
 {
 
     ///[yii2-brainblog_v0.7.0_f0.6.0_post_status]

@@ -1,6 +1,18 @@
-<?php
+<?php ///[Yii2 article]
 
-namespace frontend\models;
+/**
+ * Yii2 article
+ *
+ * @link        http://www.brainbook.cc
+ * @see         https://github.com/yongtiger/yii2-article
+ * @author      Tiger Yong <tigeryang.brainbook@outlook.com>
+ * @copyright   Copyright (c) 2017 BrainBook.CC
+ * @license     http://opensource.org/licenses/MIT
+ */
+
+namespace yongtiger\article\models;
+
+use yii\db\ActiveQuery;
 use creocoder\taggable\TaggableQueryBehavior;   ///[yii2-brainblog_v0.4.1_f0.3.3_tag]creocoder/yii2-taggable
 
 /**
@@ -8,7 +20,7 @@ use creocoder\taggable\TaggableQueryBehavior;   ///[yii2-brainblog_v0.4.1_f0.3.3
  *
  * @see Post
  */
-class PostQuery extends \yii\db\ActiveQuery
+class PostQuery extends ActiveQuery
 {
     ///[yii2-brainblog_v0.4.1_f0.3.3_tag]creocoder/yii2-taggable
     public function behaviors()

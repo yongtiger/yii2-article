@@ -1,10 +1,10 @@
 <?php
 ///[yii2-brainblog_v0.3.1_f0.3.0_tree-manager]Category
-use kartik\tree\TreeView;
-use frontend\models\Category;
 use yii\helpers\Html;
 use yii\helpers\Url;
+use yongtiger\article\models\Category;
 use kartik\tree\Module;
+use kartik\tree\TreeView;
 
 //////[yii2-brainblog_v0.3.2_f0.3.1_tree-manager_user_category]
 if(!Yii::$app->user->isGuest){
@@ -36,7 +36,7 @@ if(!Yii::$app->user->isGuest){
 		        // Module::NODE_REMOVE => Url::to(['node/remove']),
 		        // Module::NODE_MOVE => Url::to(['node/move']),
           //   ],
-            // 'nodeView' => '@frontend/views/node/_detail',
+            // 'nodeView' => '@yongtiger/article/views/node/_detail',
             ///[http://www.brainbook.cc]
 
 		]);

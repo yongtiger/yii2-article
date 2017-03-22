@@ -1,8 +1,20 @@
-<?php
-///[yii2-brainblog_v0.3.2_f0.3.1_tree-manager_user_category][BUG]public static $treeQueryClass
-namespace frontend\models;
+<?php ///[Yii2 article]
 
-class TreeQuery extends \kartik\tree\models\TreeQuery
+/**
+ * Yii2 article
+ *
+ * @link        http://www.brainbook.cc
+ * @see         https://github.com/yongtiger/yii2-article
+ * @author      Tiger Yong <tigeryang.brainbook@outlook.com>
+ * @copyright   Copyright (c) 2017 BrainBook.CC
+ * @license     http://opensource.org/licenses/MIT
+ */
+
+namespace yongtiger\article\models;
+
+use kartik\tree\models\TreeQuery;
+
+class TreeQuery extends TreeQuery
 {
     /**
      * @inheritdoc
@@ -14,4 +26,3 @@ class TreeQuery extends \kartik\tree\models\TreeQuery
         ];
     }
 }
-///[http://www.brainbook.cc]

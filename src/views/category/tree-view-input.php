@@ -1,9 +1,9 @@
 <?php
 ///[yii2-brainblog_v0.3.1_f0.3.0_tree-manager]TreeViewInput
-use kartik\tree\TreeViewInput;
-use frontend\models\Category;
 use yii\helpers\Html;
 use yii\helpers\Url;
+use yongtiger\article\models\Category;
+use kartik\tree\TreeViewInput;
 
 if(!Yii::$app->user->isGuest){
 	$model = Category::findOne(['root' => Yii::$app->user->identity->id, 'lvl' => 0]);
@@ -28,7 +28,7 @@ if(!Yii::$app->user->isGuest){
             'nodeActions' => [
 		        // Module::NODE_MANAGE => Url::to(['node/manage']),
             ],
-            'nodeView' => '@frontend/views/node/_detail',
+            'nodeView' => '@yongtiger/article/views/node/_detail',
             ///[http://www.brainbook.cc]
 
 

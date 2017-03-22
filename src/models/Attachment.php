@@ -1,10 +1,21 @@
-<?php
-///[yii2-brainblog_v0.9.1_f0.9.0_post_attachment_AttachableBehavior]
-namespace frontend\models;
-use yii\behaviors\TimestampBehavior;
-use yii\behaviors\BlameableBehavior;
+<?php ///[Yii2 article]
+
+/**
+ * Yii2 article
+ *
+ * @link        http://www.brainbook.cc
+ * @see         https://github.com/yongtiger/yii2-article
+ * @author      Tiger Yong <tigeryang.brainbook@outlook.com>
+ * @copyright   Copyright (c) 2017 BrainBook.CC
+ * @license     http://opensource.org/licenses/MIT
+ */
+
+namespace yongtiger\article\models;
 
 use Yii;
+use yii\db\ActiveRecord;
+use yii\behaviors\TimestampBehavior;
+use yii\behaviors\BlameableBehavior;
 
 /**
  * This is the model class for table "attachment".
@@ -20,7 +31,7 @@ use Yii;
  * @property Content $content
  * @property User $user
  */
-class Attachment extends \yii\db\ActiveRecord
+class Attachment extends ActiveRecord
 {
     private $_attachmentUpload; ///[yii2-brainblog_v0.9.1_f0.9.0_post_attachment_AttachableBehavior]
 

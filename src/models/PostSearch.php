@@ -1,14 +1,24 @@
-<?php
+<?php ///[Yii2 article]
 
-namespace frontend\models;
+/**
+ * Yii2 article
+ *
+ * @link        http://www.brainbook.cc
+ * @see         https://github.com/yongtiger/yii2-article
+ * @author      Tiger Yong <tigeryang.brainbook@outlook.com>
+ * @copyright   Copyright (c) 2017 BrainBook.CC
+ * @license     http://opensource.org/licenses/MIT
+ */
+
+namespace yongtiger\article\models;
 
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use frontend\models\Post;
+use yongtiger\article\models\Post;
 
 /**
- * PostSearch represents the model behind the search form about `frontend\models\Post`.
+ * PostSearch represents the model behind the search form about `yongtiger\article\models\Post`.
  */
 class PostSearch extends Post
 {

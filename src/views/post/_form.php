@@ -2,12 +2,13 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
-use frontend\models\Post;
+use yongtiger\article\models\Post;
 
 /* @var $this yii\web\View */
-/* @var $post_model frontend\models\Post */
-/* @var $content_model frontend\models\Content */
+/* @var $post_model yongtiger\article\models\Post */
+/* @var $content_model yongtiger\article\models\Content */
 /* @var $form yii\widgets\ActiveForm */
+
 ?>
 
 <div class="post-form">

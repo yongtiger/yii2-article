@@ -1,14 +1,24 @@
-<?php
-///[yii2-brainblog_v0.10.0_f0.9.3_post_comment]
-namespace frontend\models;
+<?php ///[Yii2 article]
+
+/**
+ * Yii2 article
+ *
+ * @link        http://www.brainbook.cc
+ * @see         https://github.com/yongtiger/yii2-article
+ * @author      Tiger Yong <tigeryang.brainbook@outlook.com>
+ * @copyright   Copyright (c) 2017 BrainBook.CC
+ * @license     http://opensource.org/licenses/MIT
+ */
+
+namespace yongtiger\article\models;
 
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use frontend\models\Comment;
+use yongtiger\article\models\Comment;
 
 /**
- * CommentSearch represents the model behind the search form about `frontend\models\Comment`.
+ * CommentSearch represents the model behind the search form about `yongtiger\article\models\Comment`.
  */
 class CommentSearch extends Comment
 {

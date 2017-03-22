@@ -16,9 +16,9 @@ use Yii;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
-use frontend\models\Post;
-use frontend\models\PostSearch;
-use frontend\models\Content;
+use yongtiger\article\models\Post;
+use yongtiger\article\models\PostSearch;
+use yongtiger\article\models\Content;
 
 /**
  * PostController implements the CRUD actions for Post model.
@@ -32,7 +32,7 @@ class PostController extends Controller
     {
         return [
             'upload' => [
-                'class' => 'kucha\ueditor\UEditorAction',
+                'class' => 'yongtiger\ueditor\UEditorAction',
                 'config' => [
                     //"imageUrlPrefix"  => "http://www.baidu.com",//图片访问路径前缀
                     "imagePathFormat" => "/upload/image/{yyyy}{mm}{dd}/{time}{rand:6}", //上传保存路径

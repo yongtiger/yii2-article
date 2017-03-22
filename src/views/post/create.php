@@ -3,12 +3,13 @@
 use yii\helpers\Html;
 
 /* @var $this yii\web\View */
-/* @var $post_model frontend\models\Post */
-/* @var $content_model frontend\models\Content */
+/* @var $post_model yongtiger\article\models\Post */
+/* @var $content_model yongtiger\article\models\Content */
 
 $this->title = 'Create Post';
 $this->params['breadcrumbs'][] = ['label' => 'Posts', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
+
 ?>
 <div class="post-create">
 

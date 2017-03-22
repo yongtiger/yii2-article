@@ -1,8 +1,19 @@
-<?php
+<?php ///[Yii2 article]
 
-namespace frontend\models;
+/**
+ * Yii2 article
+ *
+ * @link        http://www.brainbook.cc
+ * @see         https://github.com/yongtiger/yii2-article
+ * @author      Tiger Yong <tigeryang.brainbook@outlook.com>
+ * @copyright   Copyright (c) 2017 BrainBook.CC
+ * @license     http://opensource.org/licenses/MIT
+ */
+
+namespace yongtiger\article\models;
 
 use Yii;
+use yii\db\ActiveRecord;
 
 /**
  * This is the model class for table "post_tag_assn".
@@ -13,7 +24,7 @@ use Yii;
  * @property Tag $tag
  * @property Post $post
  */
-class PostTagAssn extends \yii\db\ActiveRecord
+class PostTagAssn extends ActiveRecord
 {
     /**
      * @inheritdoc

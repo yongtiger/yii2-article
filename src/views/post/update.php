@@ -3,13 +3,14 @@
 use yii\helpers\Html;
 
 /* @var $this yii\web\View */
-/* @var $post_model frontend\models\Post */
-/* @var $content_model frontend\models\Content */
+/* @var $post_model yongtiger\article\models\Post */
+/* @var $content_model yongtiger\article\models\Content */
 
 $this->title = 'Update Post: ' . $post_model->title;
 $this->params['breadcrumbs'][] = ['label' => 'Posts', 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $post_model->title, 'url' => ['view', 'id' => $post_model->id]];
 $this->params['breadcrumbs'][] = 'Update';
+
 ?>
 <div class="post-update">
 

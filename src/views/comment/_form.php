@@ -4,10 +4,10 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
 /* @var $this yii\web\View */
-/* @var $model frontend\models\Comment */
+/* @var $model yongtiger\article\models\Comment */
 /* @var $form yii\widgets\ActiveForm */
-?>
 
+?>
 <div class="comment-form">
 
     <?php $form = ActiveForm::begin(); ?>
