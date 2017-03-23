@@ -4,9 +4,8 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
 /* @var $this yii\web\View */
-/* @var $model yongtiger\article\models\ContentSearch */
+/* @var $model frontend\models\ContentSearch */
 /* @var $form yii\widgets\ActiveForm */
-
 ?>
 
 <div class="form-content-search">

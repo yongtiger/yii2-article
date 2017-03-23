@@ -5,12 +5,11 @@ use yii\widgets\DetailView;
 use kartik\grid\GridView;
 
 /* @var $this yii\web\View */
-/* @var $model yongtiger\article\models\Content */
+/* @var $model frontend\models\Content */
 
 $this->title = $model->id;
 $this->params['breadcrumbs'][] = ['label' => 'Content', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
-
 ?>
 <div class="content-view">
 

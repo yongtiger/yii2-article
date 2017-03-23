@@ -13,7 +13,6 @@
 namespace yongtiger\article\models;
 
 use Yii;
-use yii\db\ActiveRecord;
 use yii\behaviors\TimestampBehavior;
 use yii\behaviors\BlameableBehavior;    ///[yii2-brainblog_v0.6.0_f0.5.1_post_user_id_BlameableBehavior]
 use creocoder\taggable\TaggableBehavior;   ///[yii2-brainblog_v0.4.1_f0.3.3_tag]creocoder/yii2-taggable]
@@ -40,7 +39,7 @@ use creocoder\taggable\TaggableBehavior;   ///[yii2-brainblog_v0.4.1_f0.3.3_tag]
  * @property PostTagAssn[] $postTagAssns
  * @property Tag[] $tags
  */
-class Post extends ActiveRecord
+class Post extends \yii\db\ActiveRecord
 {
 
     ///[yii2-brainblog_v0.7.0_f0.6.0_post_status]
@@ -54,7 +53,7 @@ class Post extends ActiveRecord
      */
     public static function tableName()
     {
-        return 'post';
+        return '{{%article_post}}';
     }
 
     /**
@@ -104,7 +103,7 @@ class Post extends ActiveRecord
             [['content_id'], 'exist', 'skipOnError' => true, 'targetClass' => Content::className(), 'targetAttribute' => ['content_id' => 'id']],
 
             ///[yii2-brainblog_v0.6.0_f0.5.1_post_user_id_BlameableBehavior]去掉'user_id'
-            ///[['user_id'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['user_id' => 'id']],
+            ///[['user_id'], 'exist', 'skipOnError' => true, 'targetClass' => Yii::$app->getUser()->identityClass, 'targetAttribute' => ['user_id' => 'id']],
 
             ['tagValues', 'safe'],  ///[yii2-brainblog_v0.4.1_f0.3.3_tag]creocoder/yii2-taggable
 
@@ -162,7 +161,7 @@ class Post extends ActiveRecord
      */
     public function getUser()
     {
-        return $this->hasOne(User::className(), ['id' => 'user_id']);
+        return $this->hasOne(Yii::$app->getUser()->identityClass, ['id' => 'user_id']);
     }
 
     /**

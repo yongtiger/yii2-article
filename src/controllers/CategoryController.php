@@ -23,6 +23,7 @@ use yongtiger\article\models\Category;
  * @package yongtiger\article\controllers
  */
 class CategoryController extends Controller {
+    
     public function actionIndex()
     {
         return $this->render('index');
@@ -40,7 +41,7 @@ class CategoryController extends Controller {
     {
         $model = new Category(
         	[
-        		'root' => Yii::$app->user->identity->id,
+        		'root' => Yii::$app->user->id,
         		'name' => Yii::$app->user->identity->username,
         		'lft' => 1,
         		'rgt' => 2,

@@ -13,7 +13,6 @@
 namespace yongtiger\article\models;
 
 use Yii;
-use yii\db\ActiveRecord;
 
 /**
  * This is the model class for table "content".
@@ -23,7 +22,7 @@ use yii\db\ActiveRecord;
  *
  * @property Post[] $posts
  */
-class Content extends ActiveRecord
+class Content extends \yii\db\ActiveRecord
 {
     private $_attachments;
 
@@ -32,7 +31,7 @@ class Content extends ActiveRecord
      */
     public static function tableName()
     {
-        return 'content';
+        return '{{%article_content}}';
     }
 
     ///[yii2-brainblog_v0.9.1_f0.9.0_post_attachment_AttachableBehavior]

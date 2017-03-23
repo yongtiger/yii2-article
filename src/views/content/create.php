@@ -2,13 +2,13 @@
 
 use yii\helpers\Html;
 
+
 /* @var $this yii\web\View */
-/* @var $model yongtiger\article\models\Content */
+/* @var $model frontend\models\Content */
 
 $this->title = 'Create Content';
 $this->params['breadcrumbs'][] = ['label' => 'Content', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
-
 ?>
 <div class="content-create">
 

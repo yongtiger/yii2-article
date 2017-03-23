@@ -5,6 +5,9 @@ use kartik\builder\TabularForm;
 use yii\data\ArrayDataProvider;
 use yii\helpers\Html;
 use yii\widgets\Pjax;
+use yongtiger\article\Category;
+
+$useClassName = Yii::$app->getUser()->identityClass;
 
 $dataProvider = new ArrayDataProvider([
     'allModels' => $row,
@@ -27,7 +30,7 @@ echo TabularForm::widget([
             'type' => TabularForm::INPUT_WIDGET,
             'widgetClass' => \kartik\widgets\Select2::className(),
             'options' => [
-                'data' => \yii\helpers\ArrayHelper::map(\frontend\models\Category::find()->orderBy('name')->asArray()->all(), 'id', 'name'),
+                'data' => \yii\helpers\ArrayHelper::map(Category::find()->orderBy('name')->asArray()->all(), 'id', 'name'),
                 'options' => ['placeholder' => 'Choose Category'],
             ],
             'columnOptions' => ['width' => '200px']
@@ -39,7 +42,7 @@ echo TabularForm::widget([
             'type' => TabularForm::INPUT_WIDGET,
             'widgetClass' => \kartik\widgets\Select2::className(),
             'options' => [
-                'data' => \yii\helpers\ArrayHelper::map(\frontend\models\User::find()->orderBy('username')->asArray()->all(), 'id', 'username'),
+                'data' => \yii\helpers\ArrayHelper::map($useClassName::find()->orderBy('username')->asArray()->all(), 'id', 'username'),
                 'options' => ['placeholder' => 'Choose User'],
             ],
             'columnOptions' => ['width' => '200px']

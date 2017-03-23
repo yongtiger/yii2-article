@@ -18,7 +18,6 @@ use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use yongtiger\article\models\Comment;
 use yongtiger\article\models\CommentSearch;
-
 /**
  * CommentController implements the CRUD actions for Comment model.
  *

@@ -43,7 +43,7 @@ class Attachment extends ActiveRecord
      */
     public static function tableName()
     {
-        return 'attachment';
+        return '{{%article_attachment}}';
     }
 
     /**
@@ -78,7 +78,7 @@ class Attachment extends ActiveRecord
 
             [['attachment_type_id'], 'exist', 'skipOnError' => true, 'targetClass' => AttachmentType::className(), 'targetAttribute' => ['attachment_type_id' => 'id']],
             [['content_id'], 'exist', 'skipOnError' => true, 'targetClass' => Content::className(), 'targetAttribute' => ['content_id' => 'id']],
-            [['user_id'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['user_id' => 'id']],
+            [['user_id'], 'exist', 'skipOnError' => true, 'targetClass' => Yii::$app->getUser()->identityClass, 'targetAttribute' => ['user_id' => 'id']],
         ];
     }
 
@@ -118,7 +118,7 @@ class Attachment extends ActiveRecord
      */
     public function getUser()
     {
-        return $this->hasOne(User::className(), ['id' => 'user_id']);
+        return $this->hasOne(Yii::$app->getUser()->identityClass, ['id' => 'user_id']);
     }
 
     /**

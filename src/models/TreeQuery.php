@@ -12,9 +12,7 @@
 
 namespace yongtiger\article\models;
 
-use kartik\tree\models\TreeQuery;
-
-class TreeQuery extends TreeQuery
+class TreeQuery extends \kartik\tree\models\TreeQuery
 {
     /**
      * @inheritdoc
@@ -26,3 +24,4 @@ class TreeQuery extends TreeQuery
         ];
     }
 }
+///[http://www.brainbook.cc]

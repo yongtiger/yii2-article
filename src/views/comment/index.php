@@ -3,14 +3,12 @@
 use yii\helpers\Html;
 use yii\grid\GridView;
 use yii\widgets\Pjax;
-
 /* @var $this yii\web\View */
-/* @var $searchModel yongtiger\article\models\CommentSearch */
+/* @var $searchModel frontend\models\CommentSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
 $this->title = 'Comments';
 $this->params['breadcrumbs'][] = $this->title;
-
 ?>
 <div class="comment-index">
 
@@ -20,8 +18,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <p>
         <?= Html::a('Create Comment', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
-    <?php Pjax::begin(); ?>
-    <?= GridView::widget([
+<?php Pjax::begin(); ?>    <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
         'columns' => [
@@ -41,5 +38,4 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => 'yii\grid\ActionColumn'],
         ],
     ]); ?>
-    <?php Pjax::end(); ?>
-</div>
+<?php Pjax::end(); ?></div>

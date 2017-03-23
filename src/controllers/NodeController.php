@@ -173,7 +173,7 @@ class NodeController extends Controller
 
         ///[yii2-brainblog_v0.3.2_f0.3.1_tree-manager_user_category]让用户根节点也能添加节点（+启用!）
         if(empty($parentKey)){
-            $model = $modelClass::findOne(['root' => Yii::$app->user->identity->id, 'lvl' => 0]);
+            $model = $modelClass::findOne(['root' => Yii::$app->user->id, 'lvl' => 0]);
             $parentKey = $model->id;
         }
 

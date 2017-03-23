@@ -13,7 +13,7 @@
 namespace yongtiger\article\models;
 
 use Yii;
-use yii\db\ActiveRecord;
+///[yii2-brainblog_v0.10.0_f0.9.3_post_comment]TimestampBehavior、BlameableBehavior
 use yii\behaviors\TimestampBehavior;
 use yii\behaviors\BlameableBehavior;
 
@@ -36,14 +36,14 @@ use yii\behaviors\BlameableBehavior;
  * @property Post $post
  * @property User $user
  */
-class Comment extends ActiveRecord
+class Comment extends \yii\db\ActiveRecord
 {
     /**
      * @inheritdoc
      */
     public static function tableName()
     {
-        return 'comment';
+        return '{{%article_comment}}';
     }
 
     ///[yii2-brainblog_v0.10.0_f0.9.3_post_comment]TimestampBehavior、BlameableBehavior
@@ -84,7 +84,7 @@ class Comment extends ActiveRecord
             //[['created_at', 'updated_at'], 'safe'],
             [['parent_id'], 'exist', 'skipOnError' => true, 'targetClass' => Comment::className(), 'targetAttribute' => ['parent_id' => 'id']],
             [['post_id'], 'exist', 'skipOnError' => true, 'targetClass' => Post::className(), 'targetAttribute' => ['post_id' => 'id']],
-            //[['user_id'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['user_id' => 'id']],
+            //[['user_id'], 'exist', 'skipOnError' => true, 'targetClass' => Yii::$app->getUser()->identityClass, 'targetAttribute' => ['user_id' => 'id']],
         ];
         ///[http://www.brainbook.cc]
     }
@@ -137,7 +137,7 @@ class Comment extends ActiveRecord
      */
     public function getUser()
     {
-        return $this->hasOne(User::className(), ['id' => 'user_id']);
+        return $this->hasOne(Yii::$app->getUser()->identityClass, ['id' => 'user_id']);
     }
 }
 ///[http://www.brainbook.cc]

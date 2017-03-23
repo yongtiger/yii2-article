@@ -3,13 +3,12 @@
 use yii\helpers\Html;
 
 /* @var $this yii\web\View */
-/* @var $model yongtiger\article\models\Content */
+/* @var $model frontend\models\Content */
 
 $this->title = 'Update Content: ' . ' ' . $model->id;
 $this->params['breadcrumbs'][] = ['label' => 'Content', 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $model->id, 'url' => ['view', 'id' => $model->id]];
 $this->params['breadcrumbs'][] = 'Update';
-
 ?>
 <div class="content-update">
 

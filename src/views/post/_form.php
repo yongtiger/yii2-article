@@ -8,7 +8,6 @@ use yongtiger\article\models\Post;
 /* @var $post_model yongtiger\article\models\Post */
 /* @var $content_model yongtiger\article\models\Content */
 /* @var $form yii\widgets\ActiveForm */
-
 ?>
 
 <div class="post-form">

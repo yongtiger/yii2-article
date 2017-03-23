@@ -13,7 +13,6 @@
 namespace yongtiger\article\models;
 
 use Yii;
-use yii\db\ActiveRecord;
 
 /**
  * This is the model class for table "category_tag_assn".
@@ -24,14 +23,14 @@ use yii\db\ActiveRecord;
  * @property Category $category
  * @property Tag $tag
  */
-class CategoryTagAssn extends ActiveRecord
+class CategoryTagAssn extends \yii\db\ActiveRecord
 {
     /**
      * @inheritdoc
      */
     public static function tableName()
     {
-        return 'category_tag_assn';
+        return '{{%article_category_tag_assn}}';
     }
 
     /**

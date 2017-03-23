@@ -38,7 +38,7 @@ class AttachmentType extends ActiveRecord
      */
     public static function tableName()
     {
-        return 'attachment_type';
+        return '{{%article_attachment_type}}';
     }
 
     /**

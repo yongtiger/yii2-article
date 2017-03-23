@@ -4,12 +4,11 @@ use yii\helpers\Html;
 
 
 /* @var $this yii\web\View */
-/* @var $model yongtiger\article\models\Comment */
+/* @var $model frontend\models\Comment */
 
 $this->title = 'Create Comment';
 $this->params['breadcrumbs'][] = ['label' => 'Comments', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
-
 ?>
 <div class="comment-create">
 

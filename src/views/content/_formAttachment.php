@@ -5,6 +5,9 @@ use kartik\builder\TabularForm;
 use yii\data\ArrayDataProvider;
 use yii\helpers\Html;
 use yii\widgets\Pjax;
+use yongtiger\article\AttachmentType;
+
+$useClassName = Yii::$app->getUser()->identityClass;
 
 $dataProvider = new ArrayDataProvider([
     'allModels' => $row,
@@ -27,7 +30,7 @@ echo TabularForm::widget([
             'type' => TabularForm::INPUT_WIDGET,
             'widgetClass' => \kartik\widgets\Select2::className(),
             'options' => [
-                'data' => \yii\helpers\ArrayHelper::map(\frontend\models\AttachmentType::find()->orderBy('id')->asArray()->all(), 'id', 'id'),
+                'data' => \yii\helpers\ArrayHelper::map(AttachmentType::find()->orderBy('id')->asArray()->all(), 'id', 'id'),
                 'options' => ['placeholder' => 'Choose Attachment type'],
             ],
             'columnOptions' => ['width' => '200px']
@@ -38,7 +41,7 @@ echo TabularForm::widget([
             'type' => TabularForm::INPUT_WIDGET,
             'widgetClass' => \kartik\widgets\Select2::className(),
             'options' => [
-                'data' => \yii\helpers\ArrayHelper::map(\frontend\models\User::find()->orderBy('username')->asArray()->all(), 'id', 'username'),
+                'data' => \yii\helpers\ArrayHelper::map($useClassName::find()->orderBy('username')->asArray()->all(), 'id', 'username'),
                 'options' => ['placeholder' => 'Choose User'],
             ],
             'columnOptions' => ['width' => '200px']

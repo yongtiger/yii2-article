@@ -19,6 +19,8 @@ use yii\filters\VerbFilter;
 use yongtiger\article\models\Post;
 use yongtiger\article\models\PostSearch;
 use yongtiger\article\models\Content;
+use yongtiger\article\models\Comment;
+use yongtiger\article\models\CommentSearch;
 
 /**
  * PostController implements the CRUD actions for Post model.
@@ -32,7 +34,7 @@ class PostController extends Controller
     {
         return [
             'upload' => [
-                'class' => 'yongtiger\ueditor\UEditorAction',
+                'class' => 'kucha\ueditor\UEditorAction',
                 'config' => [
                     //"imageUrlPrefix"  => "http://www.baidu.com",//图片访问路径前缀
                     "imagePathFormat" => "/upload/image/{yyyy}{mm}{dd}/{time}{rand:6}", //上传保存路径
@@ -81,14 +83,14 @@ class PostController extends Controller
     public function actionView($id)
     {
         ///[yii2-brainblog_v0.10.0_f0.9.3_post_comment]显示评论列表
-        $comment_searchModel = new \frontend\models\CommentSearch();
+        $comment_searchModel = new CommentSearch();
         $comment_dataProvider = $comment_searchModel->search(Yii::$app->request->queryParams);
         $comment_dataProvider->pagination->pageSize = 10;
 
         ///[yii2-brainblog_v0.10.0_f0.9.3_post_comment]Pjax发表评论
-        $comment_model = new \frontend\models\Comment();
+        $comment_model = new Comment();
         if ($comment_model->load(Yii::$app->request->post()) && $comment_model->save()) {
-            $comment_model = new \frontend\models\Comment();    ///Pjax后重置$comment_model为new！@see http://www.yiiframework.com/wiki/772/pjax-on-activeform-and-gridview-yii2/
+            $comment_model = new Comment();    ///Pjax后重置$comment_model为new！@see http://www.yiiframework.com/wiki/772/pjax-on-activeform-and-gridview-yii2/
         }
         ///[http://www.brainbook.cc]
 

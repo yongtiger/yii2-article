@@ -4,7 +4,7 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
 /* @var $this yii\web\View */
-/* @var $model yongtiger\article\models\Content */
+/* @var $model frontend\models\Content */
 /* @var $form yii\widgets\ActiveForm */
 
 \mootensai\components\JsBlock::widget(['viewFile' => '_script', 'pos'=> \yii\web\View::POS_END, 
@@ -23,8 +23,8 @@ use yii\widgets\ActiveForm;
         'isNewRecord' => ($model->isNewRecord) ? 1 : 0
     ]
 ]);
-
 ?>
+
 <div class="content-form">
 
     <?php $form = ActiveForm::begin(); ?>

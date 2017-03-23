@@ -16,6 +16,7 @@ use Yii;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\data\ArrayDataProvider;
 use yongtiger\article\models\Content;
 use yongtiger\article\models\ContentSearch;
 
@@ -61,10 +62,10 @@ class ContentController extends Controller
     public function actionView($id)
     {
         $model = $this->findModel($id);
-        $providerAttachment = new \yii\data\ArrayDataProvider([
+        $providerAttachment = new ArrayDataProvider([
             'allModels' => $model->attachments,
         ]);
-        $providerPost = new \yii\data\ArrayDataProvider([
+        $providerPost = new ArrayDataProvider([
             'allModels' => $model->posts,
         ]);
         return $this->render('view', [

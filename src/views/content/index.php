@@ -1,7 +1,7 @@
 <?php
 
 /* @var $this yii\web\View */
-/* @var $searchModel yongtiger\article\models\ContentSearch */
+/* @var $searchModel frontend\models\ContentSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
 use yii\helpers\Html;
@@ -15,7 +15,6 @@ $search = "$('.search-button').click(function(){
 	return false;
 });";
 $this->registerJs($search);
-
 ?>
 <div class="content-index">
 

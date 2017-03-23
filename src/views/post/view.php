@@ -2,11 +2,11 @@
 
 use yii\helpers\Html;
 use yii\widgets\DetailView;
+use yongtiger\article\models\Post;
 use yii\widgets\ActiveForm;
 use yii\widgets\ListView;
 use yii\widgets\Pjax;
 use yii\helpers\Url;
-use yongtiger\article\models\Post;
 
 /* @var $this yii\web\View */
 /* @var $post_model yongtiger\article\models\Post */
