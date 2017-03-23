@@ -21,6 +21,8 @@ use yongtiger\article\models\CommentSearch;
 
 /**
  * CommentController implements the CRUD actions for Comment model.
+ *
+ * @package yongtiger\article\controllers
  */
 class CommentController extends Controller
 {

@@ -14,6 +14,7 @@ namespace yongtiger\article\models;
 
 use Yii;
 use yii\db\ActiveRecord;
+use yii\db\ActiveQuery;
 
 /**
  * This is the model class for table "attachment_type".

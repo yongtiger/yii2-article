@@ -1,12 +1,16 @@
-<?php
-///[yii2-brainblog_v0.3.1_f0.3.0_tree-manager]nodeActions
+<?php ///[Yii2 article]
+
 /**
- * @copyright Copyright &copy; Kartik Visweswaran, Krajee.com, 2015 - 2016
- * @package   yii2-tree-manager
- * @version   1.0.6
+ * Yii2 article
+ *
+ * @link        http://www.brainbook.cc
+ * @see         https://github.com/yongtiger/yii2-article
+ * @author      Tiger Yong <tigeryang.brainbook@outlook.com>
+ * @copyright   Copyright (c) 2017 BrainBook.CC
+ * @license     http://opensource.org/licenses/MIT
  */
 
-namespace frontend\controllers;
+namespace yongtiger\article\controllers;
 
 use Yii;
 use Closure;

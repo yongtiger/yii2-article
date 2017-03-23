@@ -16,6 +16,11 @@ use yii\base\Behavior;
 use yii\db\ActiveRecord;
 use yii\helpers\ArrayHelper;
 
+/**
+ * Class AttachableBehavior
+ *
+ * @package yongtiger\article\models
+ */
 class AttachableBehavior extends Behavior
 {
 

@@ -21,6 +21,8 @@ use yongtiger\article\models\ContentSearch;
 
 /**
  * ContentController implements the CRUD actions for Content model.
+ *
+ * @package yongtiger\article\controllers
  */
 class ContentController extends Controller
 {

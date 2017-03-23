@@ -17,6 +17,11 @@ use yii\web\Controller;
 use yii\helpers\Url;
 use yongtiger\article\models\Category;
 
+/**
+ * CategoryController implements the CRUD actions for Category model.
+ *
+ * @package yongtiger\article\controllers
+ */
 class CategoryController extends Controller {
     public function actionIndex()
     {
