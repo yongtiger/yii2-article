@@ -12,7 +12,7 @@
 
 namespace yongtiger\article\models;
 
-use creocoder\taggable\TaggableQueryBehavior;   ///[yii2-brainblog_v0.4.1_f0.3.3_tag]creocoder/yii2-taggable
+use yongtiger\taggable\TaggableQueryBehavior;   ///[yii2-brainblog_v0.4.1_f0.3.3_tag]creocoder/yii2-taggable
 
 /**
  * This is the ActiveQuery class for [[Post]].

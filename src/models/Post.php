@@ -15,7 +15,7 @@ namespace yongtiger\article\models;
 use Yii;
 use yii\behaviors\TimestampBehavior;
 use yii\behaviors\BlameableBehavior;    ///[yii2-brainblog_v0.6.0_f0.5.1_post_user_id_BlameableBehavior]
-use creocoder\taggable\TaggableBehavior;   ///[yii2-brainblog_v0.4.1_f0.3.3_tag]creocoder/yii2-taggable]
+use yongtiger\taggable\TaggableBehavior;   ///[yii2-brainblog_v0.4.1_f0.3.3_tag]creocoder/yii2-taggable]
 
 /**
  * This is the model class for table "post".
