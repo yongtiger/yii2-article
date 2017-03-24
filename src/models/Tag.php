@@ -13,6 +13,7 @@
 namespace yongtiger\article\models;
 
 use Yii;
+use yii\db\ActiveRecord;
 
 /**
  * This is the model class for table "tag".
@@ -25,7 +26,7 @@ use Yii;
  * @property PostTagAssn[] $postTagAssns
  * @property Post[] $posts
  */
-class Tag extends \yii\db\ActiveRecord
+class Tag extends ActiveRecord
 {
     /**
      * @inheritdoc
@@ -80,6 +81,6 @@ class Tag extends \yii\db\ActiveRecord
      */
     public function getPosts()
     {
-        return $this->hasMany(Post::className(), ['id' => 'post_id'])->viaTable('post_tag_assn', ['tag_id' => 'id']);
+        return $this->hasMany(Post::className(), ['id' => 'post_id'])->viaTable(PostTagAssn::tableName(), ['tag_id' => 'id']);
     }
 }

@@ -1,6 +1,6 @@
 <?php
 ///[yii2-brainblog_v0.3.1_f0.3.0_tree-manager]TreeViewInput
-use kartik\tree\TreeViewInput;
+use yongtiger\tree\TreeViewInput;
 use yongtiger\article\models\Category;
 use yii\helpers\Html;
 use yii\helpers\Url;

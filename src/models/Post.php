@@ -13,6 +13,7 @@
 namespace yongtiger\article\models;
 
 use Yii;
+use yii\db\ActiveRecord;
 use yii\behaviors\TimestampBehavior;
 use yii\behaviors\BlameableBehavior;    ///[yii2-brainblog_v0.6.0_f0.5.1_post_user_id_BlameableBehavior]
 use yongtiger\taggable\TaggableBehavior;   ///[yii2-brainblog_v0.4.1_f0.3.3_tag]creocoder/yii2-taggable]
@@ -39,7 +40,7 @@ use yongtiger\taggable\TaggableBehavior;   ///[yii2-brainblog_v0.4.1_f0.3.3_tag]
  * @property PostTagAssn[] $postTagAssns
  * @property Tag[] $tags
  */
-class Post extends \yii\db\ActiveRecord
+class Post extends ActiveRecord
 {
 
     ///[yii2-brainblog_v0.7.0_f0.6.0_post_status]
@@ -193,7 +194,7 @@ class Post extends \yii\db\ActiveRecord
     public function getTags()
     {
         return $this->hasMany(Tag::className(), ['id' => 'tag_id'])
-            ->viaTable('post_tag_assn', ['post_id' => 'id']);
+            ->viaTable(PostTagAssn::tableName(), ['post_id' => 'id']);
     }
     ///[http://www.brainbook.cc]
 

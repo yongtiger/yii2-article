@@ -25,8 +25,8 @@ use yii\web\Response;
 use yii\base\InvalidCallException;
 use yii\web\View;
 use yii\base\Event;
-use kartik\tree\TreeView;
-use kartik\tree\models\Tree;
+use yongtiger\tree\TreeView;
+use yongtiger\tree\models\Tree;
 
 class NodeController extends Controller
 {
@@ -87,7 +87,7 @@ class NodeController extends Controller
         $post = Yii::$app->request->post();
         static::checkValidRequest(!isset($post['treeNodeModify']));
         $treeNodeModify = $parentKey = $currUrl = null;
-        $modelClass = '\kartik\tree\models\Tree';
+        $modelClass = '\yongtiger\tree\models\Tree';
         extract(static::getPostData());
         $module = TreeView::module();
         $keyAttr = $module->dataStructure['keyAttribute'];
@@ -165,7 +165,7 @@ class NodeController extends Controller
         Yii::$app->response->format = Response::FORMAT_JSON;
         static::checkValidRequest();
         $parentKey = $action = null;
-        $modelClass = '\kartik\tree\models\Tree';
+        $modelClass = '\yongtiger\tree\models\Tree';
         $isAdmin = $softDelete = $showFormButtons = $showIDAttribute = false;
         $currUrl = $nodeView = $formOptions = $formAction = $breadCrumbs = $nodeSelected = '';
         $iconsList = $nodeAddlViews = [];
@@ -234,7 +234,7 @@ class NodeController extends Controller
         Yii::$app->response->format = Response::FORMAT_JSON;
         static::checkValidRequest();
         $id = null;
-        $class = '\kartik\tree\models\Tree';
+        $class = '\yongtiger\tree\models\Tree';
         $softDelete = false;
         extract(static::getPostData());
         $node = $class::findOne($id);
@@ -263,7 +263,7 @@ class NodeController extends Controller
         $dir = null;
         $idFrom = null;
         $idTo = null;
-        $class = '\kartik\tree\models\Tree';
+        $class = '\yongtiger\tree\models\Tree';
         $allowNewRoots = false;
         extract(static::getPostData());
         $nodeFrom = $class::findOne($idFrom);

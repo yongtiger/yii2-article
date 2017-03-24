@@ -12,7 +12,7 @@
 
 namespace yongtiger\article\models;
 
-class TreeQuery extends \kartik\tree\models\TreeQuery
+class TreeQuery extends \yongtiger\tree\models\TreeQuery
 {
     /**
      * @inheritdoc

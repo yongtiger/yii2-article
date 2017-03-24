@@ -80,7 +80,7 @@ class AttachmentType extends ActiveRecord
      */
     public static function find()
     {
-        return new \yii\db\ActiveQuery(get_called_class());
+        return new ActiveQuery(get_called_class());
     }
 
     ///[yii2-brainblog_v0.9.3_f0.9.2_post_attachment_AttachableBehavior]

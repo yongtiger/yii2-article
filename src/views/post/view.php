@@ -190,7 +190,7 @@ $ueditor_parse_root_path = Yii::$app->assetManager->getPublishedUrl('@vendor/yon
 <?php $this->endBlock(); ?>
 
 <?php
-frontend\assets\UeditorParseAsset::register($this);
+\yongtiger\ueditor\UeditorParseAsset::register($this);
 $this->registerJs($this->blocks['ueditor_parse_js_block'], yii\web\View::POS_END);
 ?>
 <!--///[http://www.brainbook.cc]-->

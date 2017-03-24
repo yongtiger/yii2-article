@@ -13,6 +13,7 @@
 namespace yongtiger\article\models;
 
 use Yii;
+use yii\db\ActiveRecord;
 ///[yii2-brainblog_v0.10.0_f0.9.3_post_comment]TimestampBehavior、BlameableBehavior
 use yii\behaviors\TimestampBehavior;
 use yii\behaviors\BlameableBehavior;
@@ -36,7 +37,7 @@ use yii\behaviors\BlameableBehavior;
  * @property Post $post
  * @property User $user
  */
-class Comment extends \yii\db\ActiveRecord
+class Comment extends ActiveRecord
 {
     /**
      * @inheritdoc

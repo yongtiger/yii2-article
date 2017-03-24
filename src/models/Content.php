@@ -13,6 +13,7 @@
 namespace yongtiger\article\models;
 
 use Yii;
+use yii\db\ActiveRecord;
 
 /**
  * This is the model class for table "content".
@@ -22,7 +23,7 @@ use Yii;
  *
  * @property Post[] $posts
  */
-class Content extends \yii\db\ActiveRecord
+class Content extends ActiveRecord
 {
     private $_attachments;
 

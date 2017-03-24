@@ -58,7 +58,7 @@ class PostSearch extends Post
 
         // add conditions that should always apply here
         ///[yii2-brainblog_v0.11.0_f0.10.1_post_search]
-        $query->join('LEFT JOIN', Content::tableName(), 'article_content.id = article_post.content_id');
+        $query->join('LEFT JOIN', Content::tableName(), 'article_content.id = article_post.content_id');///??????
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,

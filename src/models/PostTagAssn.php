@@ -13,6 +13,7 @@
 namespace yongtiger\article\models;
 
 use Yii;
+use yii\db\ActiveRecord;
 
 /**
  * This is the model class for table "post_tag_assn".
@@ -23,7 +24,7 @@ use Yii;
  * @property Tag $tag
  * @property Post $post
  */
-class PostTagAssn extends \yii\db\ActiveRecord
+class PostTagAssn extends ActiveRecord
 {
     /**
      * @inheritdoc

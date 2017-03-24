@@ -57,7 +57,7 @@ class Attachment extends ActiveRecord
                 'class' => TimestampBehavior::className(),
                 'createdAtAttribute' => 'created_at',
                 'updatedAtAttribute' => false,
-                'value' => new \yii\db\Expression('NOW()'),
+                'value' => new Expression('NOW()'),
             ],
 
             [
@@ -127,7 +127,7 @@ class Attachment extends ActiveRecord
      */
     public static function find()
     {
-        return new \yii\db\ActiveQuery(get_called_class());
+        return new ActiveQuery(get_called_class());
     }
 
     ///[yii2-brainblog_v0.9.3_f0.9.2_post_attachment_AttachableBehavior]
@@ -138,7 +138,7 @@ class Attachment extends ActiveRecord
         $attachType = AttachmentType::findByTypeId($this->attachment_type_id);
         $attachmentTableName = $attachType['attachment_upload_table_name'];    ///table name
 
-        $this->_attachmentUpload = (new \yii\db\Query())->from($attachmentTableName)->where(['id'=>$this->attachment_upload_id])->one();
+        $this->_attachmentUpload = (new Query())->from($attachmentTableName)->where(['id'=>$this->attachment_upload_id])->one();
 
         return $this->_attachmentUpload;
     }
