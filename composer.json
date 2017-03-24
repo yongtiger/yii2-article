@@ -22,7 +22,7 @@
         "yiisoft/yii2": "*",
         "yiisoft/yii2-bootstrap": "*",
 
-        "yongtiger/ueditor": "*",
+        "yongtiger/yii2-ueditor": "*",
         "yongtiger/yii2-taggable": "*",
         "yongtiger/yii2-tree-manager": "*",
 
