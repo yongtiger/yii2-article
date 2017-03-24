@@ -28,7 +28,7 @@ use yongtiger\article\models\Post;
 
     <!--///[yii2-brainblog_v0.5.1_f0.5.0_post_content_multiple_model]-->
     <!--///[yii2-brainblog_v0.5.0_f0.4.4_rich_text_ueditor]-->
-    <?= $form->field($content_model, 'body')->widget('kucha\ueditor\UEditor', [
+    <?= $form->field($content_model, 'body')->widget('yongtiger\ueditor\UEditor', [
         'clientOptions' => [
 
             //编辑区域大小
