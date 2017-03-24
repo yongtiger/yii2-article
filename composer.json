@@ -1,13 +1,13 @@
 {
     "name": "yongtiger/yii2-article",
     "description": "",
-    "type": "php",
-    "keywords": ["article","post","comment","category","tag"],
+    "type": "yii2-extension",
+    "keywords": ["yii2","extension","article","post","comment","category","tag"],
     "license": "MIT",
     "support": {
-        "issues": "https://github.com/yongtiger/article/issues",
+        "issues": "https://github.com/yongtiger/yii2-article/issues",
         "forum": "http://www.yiiframework.com/forum/",
-        "source": "https://github.com/yongtiger/article"
+        "source": "https://github.com/yongtiger/yii2-article"
     },
     "authors": [
         {
@@ -20,7 +20,14 @@
     "require": {
         "php": ">=5.5",
         "yiisoft/yii2": "*",
-        "yiisoft/yii2-bootstrap": "*"
+        "yiisoft/yii2-bootstrap": "*",
+
+        "yongtiger/ueditor": "*",
+        "yongtiger/yii2-taggable": "*",
+        "yongtiger/yii2-tree-manager": "dev-master",
+
+        "yuncms/yii2-tag": "*"
+        
     },
     "autoload": {
         "psr-4": {
