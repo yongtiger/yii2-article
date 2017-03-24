@@ -13,8 +13,9 @@
 namespace yongtiger\article\models;
 
 use Yii;
+use yongtiger\tree\models\Tree;
 
-class Category extends \kartik\tree\models\Tree
+class Category extends Tree
 {
 
     ///[yii2-brainblog_v0.3.2_f0.3.1_tree-manager_user_category][BUG]public static $treeQueryClass

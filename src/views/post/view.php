@@ -178,7 +178,7 @@ $this->params['breadcrumbs'][] = $this->title;
 <?php
 ///获取ueditor.parse.js所在的目录为rootPath
 /// 比如‘/[yii2project]/yii2-brainblog/frontend/web/assets/95dccb21’
-$ueditor_parse_root_path = Yii::$app->assetManager->getPublishedUrl('@vendor/kucha/ueditor/assets');
+$ueditor_parse_root_path = Yii::$app->assetManager->getPublishedUrl('@vendor/yongtiger/ueditor/assets');
 ?>
 
 <?php $this->beginBlock('ueditor_parse_js_block') ?>
