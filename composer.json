@@ -24,7 +24,7 @@
 
         "yongtiger/ueditor": "*",
         "yongtiger/yii2-taggable": "*",
-        "yongtiger/yii2-tree-manager": "dev-master",
+        "yongtiger/yii2-tree-manager": "*",
 
         "yuncms/yii2-tag": "*"
         
