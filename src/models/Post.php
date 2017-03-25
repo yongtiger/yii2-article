@@ -24,7 +24,7 @@ use yongtiger\taggable\TaggableBehavior;   ///[yii2-brainblog_v0.4.1_f0.3.3_tag]
  * @property integer $id
  * @property integer $category_id
  * @property string $title
- * @property string $description
+ * @property string $summary
  * @property integer $content_id
  * @property integer $user_id
  * @property integer $count
@@ -99,7 +99,7 @@ class Post extends ActiveRecord
         return [
             [['category_id', 'content_id', 'count', 'status'], 'integer'],   ///[yii2-brainblog_v0.6.0_f0.5.1_post_user_id_BlameableBehavior]去掉'user_id'
             [['title'], 'required'],
-            [['title', 'description'], 'string', 'max' => 255],
+            [['title', 'summary'], 'string', 'max' => 255],
             [['category_id'], 'exist', 'skipOnError' => true, 'targetClass' => Category::className(), 'targetAttribute' => ['category_id' => 'id']],
             [['content_id'], 'exist', 'skipOnError' => true, 'targetClass' => Content::className(), 'targetAttribute' => ['content_id' => 'id']],
 
@@ -122,7 +122,7 @@ class Post extends ActiveRecord
             'id' => 'ID',
             'category_id' => 'Category ID',
             'title' => 'Title',
-            'description' => 'Description',
+            'summary' => 'Summary',
             'content_id' => 'Content ID',
             'user_id' => 'User ID',
             'count' => 'Count',

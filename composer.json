@@ -29,7 +29,8 @@
         "yuncms/yii2-tag": "*",
         "mootensai/yii2-jsblock": "*",
         "kartik-v/yii2-widgets": "*",
-        "kartik-v/yii2-date-range": "*"
+        "kartik-v/yii2-date-range": "*",
+        "kartik-v/yii2-grid": "*"
         
     },
     "autoload": {

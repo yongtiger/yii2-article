@@ -5,8 +5,8 @@ use yii\widgets\ActiveForm;
 use yongtiger\article\models\Post;
 
 /* @var $this yii\web\View */
-/* @var $post_model yongtiger\article\models\Post */
-/* @var $content_model yongtiger\article\models\Content */
+/* @var $postModel yongtiger\article\models\Post */
+/* @var $contentModel yongtiger\article\models\Content */
 /* @var $form yii\widgets\ActiveForm */
 ?>
 
@@ -14,21 +14,21 @@ use yongtiger\article\models\Post;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($post_model, 'category_id')->textInput() ?>
+    <?= $form->field($postModel, 'category_id')->textInput() ?>
 
     <!--///[yii2-brainblog_v0.4.5_f0.4.4_tag_input_improve]-->
-    <?= $form->field($post_model, 'tagValues')->widget('\yuncms\tag\widgets\TagsinputWidget', [
-            'model' => $post_model, 'options' => ['value' => $post_model->isNewRecord ? '' : $post_model->tagValues]
+    <?= $form->field($postModel, 'tagValues')->widget('\yuncms\tag\widgets\TagsinputWidget', [
+            'model' => $postModel, 'options' => ['value' => $postModel->isNewRecord ? '' : $postModel->tagValues]
         ]) ?>
     <!--///[http://www.brainbook.cc]-->
 
-    <?= $form->field($post_model, 'title')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($postModel, 'title')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($post_model, 'description')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($postModel, 'summary')->textInput(['maxlength' => true]) ?>
 
     <!--///[yii2-brainblog_v0.5.1_f0.5.0_post_content_multiple_model]-->
     <!--///[yii2-brainblog_v0.5.0_f0.4.4_rich_text_ueditor]-->
-    <?= $form->field($content_model, 'body')->widget('yongtiger\ueditor\UEditor', [
+    <?= $form->field($contentModel, 'body')->widget('yongtiger\ueditor\UEditor', [
         'clientOptions' => [
 
             //编辑区域大小
@@ -138,18 +138,18 @@ use yongtiger\article\models\Post;
 
     ]); ?>
 
-    <!-- <?///= Html::activeHiddenInput($post_model, 'attachmentValues') ?> -->
+    <!-- <?///= Html::activeHiddenInput($postModel, 'attachmentValues') ?> -->
 
-    <!-- <?///= $form->field($post_model, 'content_id')->textInput() ?> -->
+    <!-- <?///= $form->field($postModel, 'content_id')->textInput() ?> -->
     <!--///[http://www.brainbook.cc]-->
 
     <!--///[yii2-brainblog_v0.6.0_f0.5.1_post_user_id_BlameableBehavior]-->
-    <!--<?///= $form->field($post_model, 'user_id')->textInput() ?> -->
+    <!--<?///= $form->field($postModel, 'user_id')->textInput() ?> -->
 
-    <?= $form->field($post_model, 'count')->textInput() ?>
+    <?= $form->field($postModel, 'count')->textInput() ?>
 
     <!--///[yii2-brainblog_v0.7.0_f0.6.0_post_status]-->
-    <?php echo $form->field($post_model, 'status')->dropDownList(
+    <?php echo $form->field($postModel, 'status')->dropDownList(
             [Post::STATUS_DELETE => 'STATUS_DELETE', Post::STATUS_MODERATE => 'STATUS_MODERATE', Post::STATUS_ACTIVE => 'STATUS_ACTIVE'], 
             ['prompt'=>'Select...']
         );
@@ -157,11 +157,11 @@ use yongtiger\article\models\Post;
      <!--///[http://www.brainbook.cc]-->
 
     <!--///[yii2-brainblog_v0.9.1_f0.9.0_post_attachment_AttachableBehavior]-->
-    <!-- <?///= Html::activeHiddenInput($post_model, 'attachmentValues') ?> -->
+    <!-- <?///= Html::activeHiddenInput($postModel, 'attachmentValues') ?> -->
     <!--///[http://www.brainbook.cc]-->
 
     <div class="form-group">
-        <?= Html::submitButton($post_model->isNewRecord ? 'Create' : 'Update', ['class' => $post_model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
+        <?= Html::submitButton($postModel->isNewRecord ? 'Create' : 'Update', ['class' => $postModel->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>

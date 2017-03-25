@@ -15,10 +15,10 @@ namespace yongtiger\article\models;
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use frontend\models\Content;
+use yongtiger\article\models\Content;
 
 /**
- * frontend\models\ContentSearch represents the model behind the search form about `frontend\models\Content`.
+ * yongtiger\article\models\ContentSearch represents the model behind the search form about `yongtiger\article\models\Content`.
  */
  class ContentSearch extends Content
 {

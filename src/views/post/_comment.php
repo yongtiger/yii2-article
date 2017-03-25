@@ -5,8 +5,8 @@ use yii\helpers\HtmlPurifier;
 use yii\widgets\ActiveForm;
 use yii\widgets\Pjax;
 use yii\helpers\Url;
-?>
 
+?>
 <div class="comment-view">
     <?= HtmlPurifier::process($model->text) ?>
     <!--///切换显示/隐藏回复评论-->
@@ -41,7 +41,6 @@ use yii\helpers\Url;
 
 	</div>
 </div>
-
 
 <?php   ///切换显示/隐藏回复评论
 $this->registerJs('

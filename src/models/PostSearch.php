@@ -30,7 +30,7 @@ class PostSearch extends Post
     {
         return [
             [['id', 'category_id', 'content_id', 'user_id', 'count', 'status'], 'integer'],
-            [['title', 'description', 'created_at', 'updated_at'], 'safe'],
+            [['title', 'summary', 'created_at', 'updated_at'], 'safe'],
 
             [['keywords'], 'safe'],
         ];
@@ -85,10 +85,10 @@ class PostSearch extends Post
         ]);
 
         $query->andFilterWhere(['like', 'title', $this->title])
-            ->andFilterWhere(['like', 'description', $this->description]);
+            ->andFilterWhere(['like', 'summary', $this->summary]);
 
         ///[yii2-brainblog_v0.11.0_f0.10.1_post_search]
-        $query->andFilterWhere(['or', ['like', 'title', $this->keywords], ['like', 'description', $this->keywords], ['like', 'body', $this->keywords]]);
+        $query->andFilterWhere(['or', ['like', 'title', $this->keywords], ['like', 'summary', $this->keywords], ['like', 'body', $this->keywords]]);
         ///$query->createCommand()->rawsql;
 
         return $dataProvider;

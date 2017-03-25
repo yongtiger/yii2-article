@@ -4,11 +4,12 @@ use yii\helpers\Html;
 use yii\grid\GridView;
 
 /* @var $this yii\web\View */
-/* @var $searchModel frontend\models\PostSearch */
+/* @var $searchModel yongtiger\article\models\PostSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
 $this->title = 'Posts';
 $this->params['breadcrumbs'][] = $this->title;
+
 ?>
 <div class="post-index">
 
@@ -27,7 +28,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'id',
             'category_id',
             'title',
-            'description',
+            'summary',
 
             ///[yii2-brainblog_v0.11.0_f0.10.1_post_search]Test!
             ///'content_id',

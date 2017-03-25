@@ -6,8 +6,8 @@ use yii\widgets\ActiveForm;
 /* @var $this yii\web\View */
 /* @var $model frontend\models\Comment */
 /* @var $form yii\widgets\ActiveForm */
-?>
 
+?>
 <div class="comment-form">
 
     <?php $form = ActiveForm::begin(); ?>
