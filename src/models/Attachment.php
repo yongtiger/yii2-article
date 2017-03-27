@@ -14,8 +14,6 @@ namespace yongtiger\article\models;
 
 use Yii;
 use yii\db\ActiveRecord;
-use yii\db\ActiveQuery;
-use yii\db\Query;
 use yii\db\Expression;
 use yii\behaviors\TimestampBehavior;
 use yii\behaviors\BlameableBehavior;
@@ -25,19 +23,21 @@ use yii\behaviors\BlameableBehavior;
  *
  * @property integer $id
  * @property integer $content_id
- * @property integer $attachment_type_id
- * @property integer $attachment_id
+ * @property string $url
+ * @property string $title
+ * @property string $original
+ * @property integer $size
+ * @property string $suffix
+ * @property string $type
  * @property integer $user_id
  * @property string $created_at
+ * @property string $updated_at
  *
- * @property AttachmentType $attachmentType
  * @property Content $content
  * @property User $user
  */
 class Attachment extends ActiveRecord
 {
-    private $_attachmentUpload; ///[yii2-brainblog_v0.9.1_f0.9.0_post_attachment_AttachableBehavior]
-
     /**
      * @inheritdoc
      */
@@ -56,10 +56,9 @@ class Attachment extends ActiveRecord
             'timestamp' => [
                 'class' => TimestampBehavior::className(),
                 'createdAtAttribute' => 'created_at',
-                'updatedAtAttribute' => false,
+                'updatedAtAttribute' => 'updated_at',
                 'value' => new Expression('NOW()'),
             ],
-
             [
                 'class' => BlameableBehavior::className(),
                 'createdByAttribute' => 'user_id',
@@ -74,9 +73,8 @@ class Attachment extends ActiveRecord
     public function rules()
     {
         return [
-            [['content_id', 'attachment_type_id', 'attachment_upload_id', 'user_id'], 'integer'],
-
-            [['attachment_type_id'], 'exist', 'skipOnError' => true, 'targetClass' => AttachmentType::className(), 'targetAttribute' => ['attachment_type_id' => 'id']],
+            [['id', 'content_id', 'user_id'], 'integer'],
+            [['url', 'title', 'original', 'suffix', 'type'], 'string', 'max' => 255],
             [['content_id'], 'exist', 'skipOnError' => true, 'targetClass' => Content::className(), 'targetAttribute' => ['content_id' => 'id']],
             [['user_id'], 'exist', 'skipOnError' => true, 'targetClass' => Yii::$app->getUser()->identityClass, 'targetAttribute' => ['user_id' => 'id']],
         ];
@@ -90,19 +88,16 @@ class Attachment extends ActiveRecord
         return [
             'id' => 'ID',
             'content_id' => 'Content ID',
-            'attachment_type_id' => 'Attachment Type ID',
-            'attachment_upload_id' => 'Attachment ID',
+            'url' => 'Url',
+            'title' => 'Title',
+            'original' => 'Original',
+            'size' => 'Size',
+            'suffix' => 'Suffix',
+            'type' => 'Type',
             'user_id' => 'User ID',
             'created_at' => 'Created At',
+            'updated_at' => 'Updated At',
         ];
-    }
-
-    /**
-     * @return \yii\db\ActiveQuery
-     */
-    public function getAttachmentType()
-    {
-        return $this->hasOne(AttachmentType::className(), ['id' => 'attachment_type_id']);
     }
 
     /**
@@ -120,41 +115,4 @@ class Attachment extends ActiveRecord
     {
         return $this->hasOne(Yii::$app->getUser()->identityClass, ['id' => 'user_id']);
     }
-
-    /**
-     * @inheritdoc
-     * @return AttachmentQuery the active query used by this AR class.
-     */
-    public static function find()
-    {
-        return new ActiveQuery(get_called_class());
-    }
-
-    ///[yii2-brainblog_v0.9.3_f0.9.2_post_attachment_AttachableBehavior]
-    public function getAttachmentUpload()
-    {
-        if($this->_attachmentUpload) return $this->_attachmentUpload;
-
-        $attachType = AttachmentType::findByTypeId($this->attachment_type_id);
-        $attachmentTableName = $attachType['attachment_upload_table_name'];    ///table name
-
-        $this->_attachmentUpload = (new Query())->from($attachmentTableName)->where(['id'=>$this->attachment_upload_id])->one();
-
-        return $this->_attachmentUpload;
-    }
-
-    public function getAttachmentTypeName()
-    {
-        $attachType = AttachmentType::findByTypeId($this->attachment_type_id);
-        return $attachType['attachment_type_name'];    ///type name
-    }
-
-    public function getAttachmentUploadTableName()
-    {
-        $attachType = AttachmentType::findByTypeId($this->attachment_type_id);
-        return $attachType['attachment_upload_table_name'];    ///table name
-    }
-    ///[http://www.brainbook.cc]
-
 }
-///[http://www.brainbook.cc]

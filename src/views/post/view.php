@@ -7,7 +7,6 @@ use yii\widgets\ActiveForm;
 use yii\widgets\ListView;
 use yii\widgets\Pjax;
 use yii\web\View;
-use yongtiger\article\models\Post;
 use yongtiger\ueditor\UeditorParseAsset;
 
 /* @var $this yii\web\View */
@@ -16,6 +15,8 @@ use yongtiger\ueditor\UeditorParseAsset;
 $this->title = $postModel->title;
 $this->params['breadcrumbs'][] = ['label' => 'Posts', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
+
+$postModelClassName = $postModel->className();
 
 ?>
 <div class="post-view">
@@ -53,7 +54,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'count',
             [
                 'label'=>'状态',
-                'value'=>[Post::STATUS_DELETE => 'STATUS_DELETE', Post::STATUS_MODERATE => 'STATUS_MODERATE', Post::STATUS_ACTIVE => 'STATUS_ACTIVE'][$postModel->status]
+                'value'=>[$postModelClassName::STATUS_DELETE => 'STATUS_DELETE', $postModelClassName::STATUS_MODERATE => 'STATUS_MODERATE', $postModelClassName::STATUS_ACTIVE => 'STATUS_ACTIVE'][$postModel->status]
             ],
             'created_at',
             'updated_at',

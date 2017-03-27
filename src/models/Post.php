@@ -15,8 +15,7 @@ namespace yongtiger\article\models;
 use Yii;
 use yii\db\ActiveRecord;
 use yii\behaviors\TimestampBehavior;
-use yii\behaviors\BlameableBehavior;    ///[yii2-brainblog_v0.6.0_f0.5.1_post_user_id_BlameableBehavior]
-use yongtiger\taggable\TaggableBehavior;   ///[yii2-brainblog_v0.4.1_f0.3.3_tag]creocoder/yii2-taggable]
+use yii\behaviors\BlameableBehavior;
 
 /**
  * This is the model class for table "post".
@@ -37,7 +36,7 @@ use yongtiger\taggable\TaggableBehavior;   ///[yii2-brainblog_v0.4.1_f0.3.3_tag]
  * @property Category $category
  * @property Content $content
  * @property User $user
- * @property PostTagAssn[] $postTagAssns
+ * @property PostTagAssn[] $postTagAssns/////////????
  * @property Tag[] $tags
  */
 class Post extends ActiveRecord
@@ -71,23 +70,21 @@ class Post extends ActiveRecord
                 'value' => new \yii\db\Expression('NOW()'),
             ],
 
-            ///[yii2-brainblog_v0.4.1_f0.3.3_tag]creocoder/yii2-taggable
-            'taggable' => [
-                'class' => TaggableBehavior::className(),
-                // 'tagValuesAsArray' => false,
-                // 'tagRelation' => 'tags',
-                // 'tagValueAttribute' => 'name',
-                // 'tagFrequencyAttribute' => 'frequency',
-            ],
-            ///[http://www.brainbook.cc]
-
-            ///[yii2-brainblog_v0.6.0_f0.5.1_post_user_id_BlameableBehavior]
             [
                 'class' => BlameableBehavior::className(),
                 'createdByAttribute' => 'user_id',
                 'updatedByAttribute' => false,
             ],
-            ///[http://www.brainbook.cc]
+
+            ///[yii2-brainblog_v0.4.1_f0.3.3_tag]creocoder/yii2-taggable
+            'taggable' => [
+                'class' => \yongtiger\taggable\TaggableBehavior::className(),
+                // 'tagValuesAsArray' => false,
+                // 'tagRelation' => 'tags',
+                // 'tagValueAttribute' => 'name',
+                // 'tagFrequencyAttribute' => 'frequency',
+            ],
+
         ];
     }
 
@@ -97,14 +94,11 @@ class Post extends ActiveRecord
     public function rules()
     {
         return [
-            [['category_id', 'content_id', 'count', 'status'], 'integer'],   ///[yii2-brainblog_v0.6.0_f0.5.1_post_user_id_BlameableBehavior]去掉'user_id'
+            [['category_id', 'content_id', 'count', 'status'], 'integer'],
             [['title'], 'required'],
             [['title', 'summary'], 'string', 'max' => 255],
             [['category_id'], 'exist', 'skipOnError' => true, 'targetClass' => Category::className(), 'targetAttribute' => ['category_id' => 'id']],
             [['content_id'], 'exist', 'skipOnError' => true, 'targetClass' => Content::className(), 'targetAttribute' => ['content_id' => 'id']],
-
-            ///[yii2-brainblog_v0.6.0_f0.5.1_post_user_id_BlameableBehavior]去掉'user_id'
-            ///[['user_id'], 'exist', 'skipOnError' => true, 'targetClass' => Yii::$app->getUser()->identityClass, 'targetAttribute' => ['user_id' => 'id']],
 
             ['tagValues', 'safe'],  ///[yii2-brainblog_v0.4.1_f0.3.3_tag]creocoder/yii2-taggable
 
@@ -168,10 +162,10 @@ class Post extends ActiveRecord
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getPostTagAssns()
-    {
-        return $this->hasMany(PostTagAssn::className(), ['post_id' => 'id']);
-    }
+    // public function getPostTagAssns()///???????????
+    // {
+    //     return $this->hasMany(PostTagAssn::className(), ['post_id' => 'id']);
+    // }
 
     /**
      * @inheritdoc

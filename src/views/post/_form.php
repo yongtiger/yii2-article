@@ -28,7 +28,7 @@ use yongtiger\article\models\Post;
 
     <!--///[yii2-brainblog_v0.5.1_f0.5.0_post_content_multiple_model]-->
     <!--///[yii2-brainblog_v0.5.0_f0.4.4_rich_text_ueditor]-->
-    <?= $form->field($contentModel, 'body')->widget('yongtiger\ueditor\UEditor', [
+    <?= $form->field($contentModel, 'body')->widget('yongtiger\ueditor\widgets\UEditor', [
         'clientOptions' => [
 
             //编辑区域大小
@@ -134,6 +134,7 @@ use yongtiger\article\models\Post;
         'uploadInputNames' => [
             'image' => 'Content[attachValues][uploadimages][]',
             'file' => 'Content[attachValues][uploadfiles][]',
+            'video' => 'Content[attachValues][uploadvideos][]',///[v0.0.7 (ADD# UEditor_insertvideo)]
         ]
 
     ]); ?>

@@ -14,19 +14,22 @@ namespace yongtiger\article\models;
 
 use Yii;
 use yii\db\ActiveRecord;
+use yii\behaviors\TimestampBehavior;
+use yii\behaviors\BlameableBehavior;
 
 /**
  * This is the model class for table "content".
  *
  * @property integer $id
- * @property string $content
+ * @property string $body
+ * @property string $created_at
+ * @property string $updated_at
  *
- * @property Post[] $posts
+ * @property Post $post
+ * @property Attachment[] attachments
  */
 class Content extends ActiveRecord
 {
-    private $_attachments;
-
     /**
      * @inheritdoc
      */
@@ -39,9 +42,22 @@ class Content extends ActiveRecord
     public function behaviors()
     {
         return [
+            'timestamp' => [
+                'class' => TimestampBehavior::className(),
+                'createdAtAttribute' => 'created_at',
+                'updatedAtAttribute' => 'updated_at',
+                'value' => new \yii\db\Expression('NOW()'),
+            ],
+
+            [
+                'class' => BlameableBehavior::className(),
+                'createdByAttribute' => 'user_id',
+                'updatedByAttribute' => false,
+            ],
+
             ///[yii2-brainblog_v0.9.1_f0.9.0_post_attachment_AttachableBehavior]
             'attachable' => [
-                'class' => AttachableBehavior::className(),
+                'class' => \yongtiger\ueditor\behaviors\AttachableBehavior::className(),///?????replacable!
             ],
             ///[http://www.brainbook.cc]
         ];
@@ -68,6 +84,8 @@ class Content extends ActiveRecord
         return [
             'id' => 'ID',
             'body' => 'Body',
+            'created_at' => 'Created At',
+            'updated_at' => 'Updated At',
         ];
     }
 
@@ -79,5 +97,11 @@ class Content extends ActiveRecord
         return $this->hasOne(Post::className(), ['content_id' => 'id']);
     }
 
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getAttachments()
+    {
+        return $this->hasMany(Attachment::className(), ['content_id' => 'id']);
+    }
 }
-///[http://www.brainbook.cc]
