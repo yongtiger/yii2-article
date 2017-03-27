@@ -1,5 +1,10 @@
 # Development roadmap
 
+## v0.0.8 (CHG# yongtiger\attachable)
+
+* `\models\Content.php` (60)
+
+
 ## v0.0.7 (ADD# UEditor_insertvideo)
 
 * `\views\post\_form.php` (137)
