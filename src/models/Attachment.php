@@ -73,7 +73,7 @@ class Attachment extends ActiveRecord
     public function rules()
     {
         return [
-            [['id', 'content_id', 'user_id'], 'integer'],
+            [['id', 'size', 'content_id', 'user_id'], 'integer'],
             [['url', 'title', 'original', 'suffix', 'type'], 'string', 'max' => 255],
             [['content_id'], 'exist', 'skipOnError' => true, 'targetClass' => Content::className(), 'targetAttribute' => ['content_id' => 'id']],
             [['user_id'], 'exist', 'skipOnError' => true, 'targetClass' => Yii::$app->getUser()->identityClass, 'targetAttribute' => ['user_id' => 'id']],

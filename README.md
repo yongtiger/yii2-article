@@ -1,4 +1,4 @@
-# Yii2-article v0.0.8 (CHG# yongtiger\attachable)
+# Yii2-article v0.0.9 (CHG# detachValues)
 
 [![Latest Stable Version](https://poser.pugx.org/yongtiger/yii2-article/v/stable)](https://packagist.org/packages/yongtiger/yii2-article)
 [![Total Downloads](https://poser.pugx.org/yongtiger/yii2-article/downloads)](https://packagist.org/packages/yongtiger/yii2-article) 

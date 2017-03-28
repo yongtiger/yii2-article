@@ -1,5 +1,11 @@
 # Development roadmap
 
+## v0.0.9 (CHG# detachValues)
+
+* `\views\post\_form.php` (134)
+* `\models\Content.php` (75)
+
+
 ## v0.0.8 (CHG# yongtiger\attachable)
 
 * `\models\Content.php` (60)

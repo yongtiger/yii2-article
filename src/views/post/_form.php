@@ -131,11 +131,11 @@ use yongtiger\article\models\Post;
 
         ///[UEditor_Event_insertimage_insertfile_simpleuploadge]
         ///[yii2-brainblog_v0.9.2_f0.9.1_post_attachment_AttachableBehavior]
+        ///[v0.0.9 (CHG# detachValues)]
         'uploadInputNames' => [
-            'image' => 'Content[attachValues][uploadimages][]',
-            'file' => 'Content[attachValues][uploadfiles][]',
-            'video' => 'Content[attachValues][uploadvideos][]',///[v0.0.7 (ADD# UEditor_insertvideo)]
-        ]
+            'attachValues' => 'Content[attachValues][]',
+            'detachValues' => 'Content[detachValues][]',
+        ],
 
     ]); ?>
 

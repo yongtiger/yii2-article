@@ -72,7 +72,7 @@ class Content extends ActiveRecord
             [['body'], 'required'],
             [['body'], 'string'],
 
-            ['attachValues', 'safe'],   ///[yii2-brainblog_v0.9.1_f0.9.0_post_attachment_AttachableBehavior]
+            [['attachValues', 'detachValues'], 'safe'],   ///[yii2-brainblog_v0.9.1_f0.9.0_post_attachment_AttachableBehavior]
         ];
     }
 
