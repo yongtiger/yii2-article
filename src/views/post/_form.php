@@ -8,8 +8,8 @@ use yongtiger\article\models\Post;
 /* @var $postModel yongtiger\article\models\Post */
 /* @var $contentModel yongtiger\article\models\Content */
 /* @var $form yii\widgets\ActiveForm */
-?>
 
+?>
 <div class="post-form">
 
     <?php $form = ActiveForm::begin(); ?>

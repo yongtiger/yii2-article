@@ -1,5 +1,8 @@
 # Development roadmap
 
+## v0.1.0 (reconstruct comment)
+
+
 ## v0.0.10 (CHG# make validation rule handling more flexible, e.g. for behaviors)
 
 * `\models\Content.php` (669): remove 'attachValues', 'detachValues'

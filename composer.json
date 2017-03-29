@@ -3,6 +3,7 @@
     "description": "",
     "type": "yii2-extension",
     "keywords": ["yii2","extension","article","post","comment","category","tag"],
+    "version": "v0.1.0",
     "license": "MIT",
     "support": {
         "issues": "https://github.com/yongtiger/yii2-article/issues",
@@ -26,6 +27,12 @@
         "yongtiger/yii2-attachable": "*",
         "yongtiger/yii2-taggable": "*",
         "yongtiger/yii2-tree-manager": "*",
+
+        "yii2mod/yii2-comments": "*",
+        "rmrevin/yii2-comments": "~1.4",
+        "yeesoft/yii2-comments": "~0.1.0",
+        "cyneek/yii2-comments": "*",
+        "isaurssaurav/yii2-comment": "*",
 
         "yuncms/yii2-tag": "*",
         "mootensai/yii2-jsblock": "*",
