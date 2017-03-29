@@ -1,4 +1,4 @@
-# Yii2-article v0.1.0 (reconstruct comment)
+# Yii2-article v0.1.1 (yongtiger/yii2-comment)
 
 [![Latest Stable Version](https://poser.pugx.org/yongtiger/yii2-article/v/stable)](https://packagist.org/packages/yongtiger/yii2-article)
 [![Total Downloads](https://poser.pugx.org/yongtiger/yii2-article/downloads)](https://packagist.org/packages/yongtiger/yii2-article) 

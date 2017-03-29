@@ -79,8 +79,10 @@ JS
 </div>
 
 <!--///[comment]-->
-<?= $this->render('/comment/list', [
-    'postModel' => $postModel,
-    'commentModel' => $commentModel,
-    'commentDataProvider' => $commentDataProvider,
-]); ?>
+<?php 
+echo \yongtiger\comment\widgets\Comment::widget([
+    'model' => $postModel,
+]);
+?>
+
+
