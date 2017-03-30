@@ -82,7 +82,22 @@ JS
 <?php 
 echo \yongtiger\comment\widgets\Comment::widget([
     'model' => $postModel,
+    'dataProviderConfig' => [
+        'pagination' => [
+            // 'pageParam' => 'comment-page',
+            // 'pageSizeParam' => 'comment-per-page',
+            'pageSize' => 3,
+            // 'pageSizeLimit' => [1, 50],
+        ],
+        'sort' => [
+            // 'attributes' => new \yii\helpers\ReplaceArrayValue(['createdAt']),
+            'defaultOrder' => [
+                'id' => SORT_DESC,
+                // 'id' => SORT_ASC,
+                // 'createdAt' => SORT_DESC,
+                // 'createdAt' => SORT_ASC,
+            ],
+        ],
+    ]
 ]);
 ?>
-
-
