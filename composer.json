@@ -3,7 +3,7 @@
     "description": "",
     "type": "yii2-extension",
     "keywords": ["yii2","extension","article","post","comment","category","tag"],
-    "version": "v0.1.1",
+    "version": "v0.1.2",
     "license": "MIT",
     "support": {
         "issues": "https://github.com/yongtiger/yii2-article/issues",
