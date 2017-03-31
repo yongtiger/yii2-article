@@ -85,6 +85,29 @@ class Post extends ActiveRecord
                 // 'tagFrequencyAttribute' => 'frequency',
             ],
 
+            ///[v0.1.3 (ADD# yongtiger\comment\behaviors)]
+            // 'comment' => [
+            //     'class' => \yongtiger\comment\behaviors\CommentBehavior::className(),
+            //     'config' => [
+            //         'dataProviderConfig' => [
+            //             'pagination' => [
+            //                 // 'pageParam' => 'comment-page',
+            //                 // 'pageSizeParam' => 'comment-per-page',
+            //                 'pageSize' => 10,
+            //                 // 'pageSizeLimit' => [1, 50],
+            //             ],
+            //             'sort' => [
+            //                 // 'attributes' => new \yii\helpers\ReplaceArrayValue(['createdAt']),
+            //                 'defaultOrder' => [
+            //                     'id' => SORT_DESC,
+            //                     // 'id' => SORT_ASC,
+            //                     // 'createdAt' => SORT_DESC,
+            //                     // 'createdAt' => SORT_ASC,
+            //                 ],
+            //             ],
+            //         ],
+            //     ],
+            // ],
         ];
     }
 
