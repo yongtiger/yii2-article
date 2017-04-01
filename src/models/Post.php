@@ -85,7 +85,7 @@ class Post extends ActiveRecord
                 // 'tagFrequencyAttribute' => 'frequency',
             ],
 
-            ///[v0.1.3 (ADD# yongtiger\comment\behaviors)]
+            ///[v0.1.3 (ADD# yongtiger\comment\behaviors)]///[v0.1.4 (CHG# comment sort)]
             // 'comment' => [
             //     'class' => \yongtiger\comment\behaviors\CommentBehavior::className(),
             //     'config' => [
@@ -96,16 +96,8 @@ class Post extends ActiveRecord
             //                 'pageSize' => 10,
             //                 // 'pageSizeLimit' => [1, 50],
             //             ],
-            //             'sort' => [
-            //                 // 'attributes' => new \yii\helpers\ReplaceArrayValue(['created_at']),
-            //                 'defaultOrder' => [
-            //                     'id' => SORT_DESC,
-            //                     // 'id' => SORT_ASC,
-            //                     // 'created_at' => SORT_DESC,
-            //                     // 'created_at' => SORT_ASC,
-            //                 ],
-            //             ],
             //         ],
+            //         'sort' => 'sort' => 'created-at-asc',
             //     ],
             // ],
         ];

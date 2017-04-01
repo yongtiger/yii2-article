@@ -93,7 +93,7 @@ echo \yongtiger\comment\widgets\Comment::widget([
     'sort' => 'created-at-asc',
 ]);
 
-///[v0.1.3 (ADD# yongtiger\comment\behaviors)]
+///[v0.1.3 (ADD# yongtiger\comment\behaviors)]///[v0.1.4 (CHG# comment sort)]
 // echo $postModelClassName::findOne(5)->displayComment(
 //     [
 //         'dataProviderConfig' => [
