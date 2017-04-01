@@ -1,4 +1,4 @@
-# Yii2-article v0.1.3 (ADD# yongtiger\comment\behaviors)
+# Yii2-article v0.1.4 (CHG# comment sort)
 
 [![Latest Stable Version](https://poser.pugx.org/yongtiger/yii2-article/v/stable)](https://packagist.org/packages/yongtiger/yii2-article)
 [![Total Downloads](https://poser.pugx.org/yongtiger/yii2-article/downloads)](https://packagist.org/packages/yongtiger/yii2-article) 

@@ -89,16 +89,8 @@ echo \yongtiger\comment\widgets\Comment::widget([
             'pageSize' => 3,
             // 'pageSizeLimit' => [1, 50],
         ],
-        'sort' => [
-            // 'attributes' => new \yii\helpers\ReplaceArrayValue(['createdAt']),
-            'defaultOrder' => [
-                'id' => SORT_DESC,
-                // 'id' => SORT_ASC,
-                // 'createdAt' => SORT_DESC,
-                // 'createdAt' => SORT_ASC,
-            ],
-        ],
-    ]
+    ],
+    'sort' => 'created-at-asc',
 ]);
 
 ///[v0.1.3 (ADD# yongtiger\comment\behaviors)]
@@ -111,16 +103,8 @@ echo \yongtiger\comment\widgets\Comment::widget([
 //                 'pageSize' => 5,
 //                 // 'pageSizeLimit' => [1, 50],
 //             ],
-//             'sort' => [
-//                 // 'attributes' => new \yii\helpers\ReplaceArrayValue(['createdAt']),
-//                 'defaultOrder' => [
-//                     // 'id' => SORT_DESC,
-//                     'id' => SORT_ASC,
-//                     // 'createdAt' => SORT_DESC,
-//                     // 'createdAt' => SORT_ASC,
-//                 ],
-//             ],
-//         ]
-//     ]
+//         ],
+//         'sort' => 'created-at-asc',
+//     ],
 // );
 ?>
