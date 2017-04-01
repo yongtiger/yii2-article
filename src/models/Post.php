@@ -97,7 +97,7 @@ class Post extends ActiveRecord
             //                 // 'pageSizeLimit' => [1, 50],
             //             ],
             //         ],
-            //         'sort' => 'sort' => 'created-at-asc',
+            //         'sort' => 'created-at-asc',
             //     ],
             // ],
         ];
