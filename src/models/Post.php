@@ -31,7 +31,6 @@ use yii\behaviors\BlameableBehavior;
  * @property string $created_at
  * @property string $updated_at
  *
- * @property Attachment[] $attachments
  * @property Comment[] $comments
  * @property Category $category
  * @property Content $content

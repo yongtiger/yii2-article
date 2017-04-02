@@ -20,17 +20,13 @@ $ueditorParseRootPath = Yii::$app->assetManager->getPublishedUrl('@yongtiger/ued
 \yongtiger\ueditor\UeditorParseAsset::register($this);
 $this->registerJs(
 <<<JS
-UE.sh_config.sh_js="shCore.min.js";
-UE.sh_config.sh_theme="Emacs";    ///choose themes: `Default,Django,Eclipse,Emacs,FadeToGrey,MDUltra,Midnight,RDark`
+PARSER.sh_config.sh_js="shCore.min.js";
+PARSER.sh_config.sh_theme="Emacs";    ///choose themes: `Default,Django,Eclipse,Emacs,FadeToGrey,MDUltra,Midnight,RDark`
 uParse(".post-view",{rootPath: "{$ueditorParseRootPath}"});
 JS
 , View::POS_END);
 
 ?>
-<link rel="stylesheet" href="http://cdn.bootcss.com/highlight.js/9.7.0/styles/monokai-sublime.min.css">
-<script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.10.0/highlight.min.js"></script>
-<script>hljs.initHighlightingOnLoad();</script>
-
 <div class="post-view">
 
     <h1><?= Html::encode($this->title) ?></h1>

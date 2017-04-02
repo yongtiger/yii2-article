@@ -20,8 +20,6 @@ use yii\helpers\StringHelper;
 use yongtiger\article\models\Post;
 use yongtiger\article\models\PostSearch;
 use yongtiger\article\models\Content;
-use yongtiger\article\models\Comment;
-use yongtiger\article\models\CommentSearch;
 
 /**
  * PostController implements the CRUD actions for Post model.
@@ -30,21 +28,6 @@ use yongtiger\article\models\CommentSearch;
  */
 class PostController extends Controller
 {
-    ///[yii2-brainblog_v0.5.0_f0.4.5_rich_text_ueditor]
-    public function actions()
-    {
-        return [
-            'upload' => [
-                'class' => 'yongtiger\ueditor\actions\UEditorAction',
-                'config' => [
-                    //"imageUrlPrefix"  => "http://www.baidu.com",//图片访问路径前缀
-                    "imagePathFormat" => "/upload/image/{yyyy}{mm}{dd}/{time}{rand:6}", //上传保存路径
-                    "imageRoot" => Yii::getAlias("@webroot"),
-                ],
-            ]
-        ];
-    }
-
     /**
      * @inheritdoc
      */
@@ -84,26 +67,8 @@ class PostController extends Controller
      */
     public function actionView($id)
     {
-        ///[yii2-brainblog_v0.10.0_f0.9.3_post_comment]显示评论列表
-        $commentSearchModel = new CommentSearch();
-        $commentDataProvider = $commentSearchModel->search(Yii::$app->request->queryParams);
-        $commentDataProvider->pagination->pageSize = 10;
-
-        ///[yii2-brainblog_v0.10.0_f0.9.3_post_comment]Pjax发表评论
-        $commentModel = new Comment();
-        if ($commentModel->load(Yii::$app->request->post()) && $commentModel->save()) {
-            $commentModel = new Comment();    ///Pjax后重置$comment_model为new！@see http://www.yiiframework.com/wiki/772/pjax-on-activeform-and-gridview-yii2/
-        }
-        ///[http://www.brainbook.cc]
-
         return $this->render('view', [
             'postModel' => $this->findModel($id),  ///[yii2-brainblog_v0.5.1_f0.5.0_post_content_multiple_model]
-            'commentModel' => $commentModel,  ///[yii2-brainblog_v0.10.0_f0.9.3_post_comment]Pjax发表评论
-
-            ///[yii2-brainblog_v0.10.0_f0.9.3_post_comment]显示评论列表
-            'commentSearchModel' => $commentSearchModel,
-            'commentDataProvider' => $commentDataProvider,
-            ///[http://www.brainbook.cc]
         ]);
 
     }

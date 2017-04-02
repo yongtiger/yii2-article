@@ -26,7 +26,6 @@ use yii\behaviors\BlameableBehavior;
  * @property string $updated_at
  *
  * @property Post $post
- * @property Attachment[] attachments
  */
 class Content extends ActiveRecord
 {
@@ -55,11 +54,11 @@ class Content extends ActiveRecord
                 'updatedByAttribute' => false,
             ],
 
-            ///[yii2-brainblog_v0.9.1_f0.9.0_post_attachment_AttachableBehavior]
+            ///[v0.1.5 (CHG# yongtiger\attachable\behaviors\AttachableBehavior)]
             'attachable' => [
-                'class' => \yongtiger\attachable\AttachableBehavior::className(),///?????replacable!
+                'class' => \yongtiger\attachable\behaviors\AttachableBehavior::className(),
             ],
-            ///[http://www.brainbook.cc]
+
         ];
     }
 
@@ -93,13 +92,5 @@ class Content extends ActiveRecord
     public function getPost()
     {
         return $this->hasOne(Post::className(), ['content_id' => 'id']);
-    }
-
-    /**
-     * @return \yii\db\ActiveQuery
-     */
-    public function getAttachments()
-    {
-        return $this->hasMany(Attachment::className(), ['content_id' => 'id']);
     }
 }

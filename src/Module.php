@@ -22,11 +22,21 @@ use Yii;
 class Module extends \yii\base\Module
 {
     /**
-     * @inheritdoc
+     * @var string module name
      */
-    public function init()
+    public static $moduleName = 'article';
+
+    /**
+     * @var callable
+     */
+    public $editorCallback;
+
+    /**
+     * @return static
+     */
+    public static function instance()
     {
-        parent::init();
+        return Yii::$app->getModule(static::$moduleName);
     }
 
     /**
