@@ -71,8 +71,8 @@ class Post extends ActiveRecord
 
             [
                 'class' => BlameableBehavior::className(),
-                'createdByAttribute' => 'user_id',
-                'updatedByAttribute' => false,
+                'createdByAttribute' => 'created_by',
+                'updatedByAttribute' => 'updated_by',
             ],
 
             ///[yii2-brainblog_v0.4.1_f0.3.3_tag]creocoder/yii2-taggable
@@ -172,7 +172,7 @@ class Post extends ActiveRecord
      */
     public function getUser()
     {
-        return $this->hasOne(Yii::$app->getUser()->identityClass, ['id' => 'user_id']);
+        return $this->hasOne(Yii::$app->getUser()->identityClass, ['id' => 'created_by']);
     }
 
     /**
