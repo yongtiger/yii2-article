@@ -45,20 +45,14 @@ class Content extends ActiveRecord
                 'class' => TimestampBehavior::className(),
                 'createdAtAttribute' => 'created_at',
                 'updatedAtAttribute' => 'updated_at',
-                'value' => new \yii\db\Expression('NOW()'),
+                // 'value' => new \yii\db\Expression('NOW()'),
             ],
 
             [
                 'class' => BlameableBehavior::className(),
-                'createdByAttribute' => 'user_id',
-                'updatedByAttribute' => false,
+                'createdByAttribute' => 'created_by',
+                'updatedByAttribute' => 'updated_by',
             ],
-
-            ///[v0.1.5 (CHG# yongtiger\attachable\behaviors\AttachableBehavior)]
-            'attachable' => [
-                'class' => \yongtiger\attachable\behaviors\AttachableBehavior::className(),
-            ],
-
         ];
     }
 
@@ -81,6 +75,8 @@ class Content extends ActiveRecord
         return [
             'id' => 'ID',
             'body' => 'Body',
+            'created_by' => 'Created By',
+            'updated_by' => 'Updated By',
             'created_at' => 'Created At',
             'updated_at' => 'Updated At',
         ];

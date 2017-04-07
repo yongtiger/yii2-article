@@ -28,9 +28,9 @@ use yongtiger\article\Module;
 
     <?php ///[editorCallback]
         $field = $form->field($contentModel, 'body');
-
+        $params = ['rows' => 10];
         if (is_callable($editor = Module::instance()->editorCallback)) {
-            echo call_user_func($editor, $field, $contentModel, 'content');
+            echo call_user_func($editor, $field, $contentModel, 'body');
         } else {
             echo $field->textarea($params);
         }

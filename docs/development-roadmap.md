@@ -1,5 +1,8 @@
 # Development roadmap
 
+## v0.2.0 (category)
+
+
 ## v0.1.999 (attachable using js)
 
 

@@ -66,7 +66,7 @@ class Post extends ActiveRecord
                 'class' => TimestampBehavior::className(),
                 'createdAtAttribute' => 'created_at',
                 'updatedAtAttribute' => 'updated_at',
-                'value' => new \yii\db\Expression('NOW()'),
+                // 'value' => new \yii\db\Expression('NOW()'),
             ],
 
             [
@@ -135,6 +135,8 @@ class Post extends ActiveRecord
             'user_id' => 'User ID',
             'count' => 'Count',
             'status' => 'Status',
+            'created_by' => 'Created By',
+            'updated_by' => 'Updated By',
             'created_at' => 'Created At',
             'updated_at' => 'Updated At',
             'tagValues' => '标签',
