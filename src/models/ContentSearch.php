@@ -18,7 +18,7 @@ use yii\data\ActiveDataProvider;
 use yongtiger\article\models\Content;
 
 /**
- * yongtiger\article\models\ContentSearch represents the model behind the search form about `yongtiger\article\models\Content`.
+ * ContentSearch represents the model behind the search form about `Content`.
  */
  class ContentSearch extends Content
 {

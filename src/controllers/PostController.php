@@ -68,9 +68,8 @@ class PostController extends Controller
     public function actionView($id)
     {
         return $this->render('view', [
-            'postModel' => $this->findModel($id),  ///[yii2-brainblog_v0.5.1_f0.5.0_post_content_multiple_model]
+            'postModel' => $this->findModel($id),
         ]);
-
     }
 
     /**
@@ -94,7 +93,6 @@ class PostController extends Controller
             'postModel' => $postModel,
             'contentModel' => $contentModel,
         ]);
-
     }
 
     /**
@@ -123,7 +121,6 @@ class PostController extends Controller
             'postModel' => $postModel,
             'contentModel' => $contentModel,
         ]);
-
     }
 
     /**

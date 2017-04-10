@@ -1,5 +1,8 @@
 # Development roadmap
 
+## v0.2.1 (remove yii2-tree, using normal nested sets catogory)
+
+
 ## v0.2.0 (category)
 
 

@@ -29,7 +29,7 @@ class PostSearch extends Post
     public function rules()
     {
         return [
-            [['id', 'category_id', 'content_id', 'user_id', 'count', 'status'], 'integer'],
+            [['id', 'category_id', 'content_id', 'user_id', 'status'], 'integer'],
             [['title', 'summary', 'created_at', 'updated_at'], 'safe'],
 
             [['keywords'], 'safe'],
@@ -57,7 +57,7 @@ class PostSearch extends Post
         $query = Post::find();
 
         // add conditions that should always apply here
-        ///[yii2-brainblog_v0.11.0_f0.10.1_post_search]
+        ///[post search]
         $query->join('LEFT JOIN', Content::tableName(), 'article_content.id = article_post.content_id');///??????
 
         $dataProvider = new ActiveDataProvider([
@@ -78,7 +78,6 @@ class PostSearch extends Post
             'category_id' => $this->category_id,
             'content_id' => $this->content_id,
             'user_id' => $this->user_id,
-            'count' => $this->count,
             'status' => $this->status,
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
@@ -87,7 +86,7 @@ class PostSearch extends Post
         $query->andFilterWhere(['like', 'title', $this->title])
             ->andFilterWhere(['like', 'summary', $this->summary]);
 
-        ///[yii2-brainblog_v0.11.0_f0.10.1_post_search]
+        ///[post search]
         $query->andFilterWhere(['or', ['like', 'title', $this->keywords], ['like', 'summary', $this->keywords], ['like', 'body', $this->keywords]]);
         ///$query->createCommand()->rawsql;
 

@@ -13,7 +13,7 @@
 namespace yongtiger\article\models;
 
 use yii\db\ActiveQuery;
-use yongtiger\taggable\TaggableQueryBehavior;   ///[yii2-brainblog_v0.4.1_f0.3.3_tag]creocoder/yii2-taggable
+use yongtiger\taggable\TaggableQueryBehavior;
 
 /**
  * This is the ActiveQuery class for [[Post]].
@@ -22,14 +22,13 @@ use yongtiger\taggable\TaggableQueryBehavior;   ///[yii2-brainblog_v0.4.1_f0.3.3
  */
 class PostQuery extends ActiveQuery
 {
-    ///[yii2-brainblog_v0.4.1_f0.3.3_tag]creocoder/yii2-taggable
+    ///[yongtiger/yii2-taggable]
     public function behaviors()
     {
         return [
             TaggableQueryBehavior::className(),
         ];
     }
-    ///[http://www.brainbook.cc]
 
     /*public function active()
     {

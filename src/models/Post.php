@@ -26,7 +26,6 @@ use yii\behaviors\BlameableBehavior;
  * @property string $summary
  * @property integer $content_id
  * @property integer $user_id
- * @property integer $count
  * @property integer $status
  * @property string $created_at
  * @property string $updated_at
@@ -35,17 +34,14 @@ use yii\behaviors\BlameableBehavior;
  * @property Category $category
  * @property Content $content
  * @property User $user
- * @property PostTagAssn[] $postTagAssns/////////????
+ * @property PostTagAssn[] $postTagAssns
  * @property Tag[] $tags
  */
 class Post extends ActiveRecord
 {
-
-    ///[yii2-brainblog_v0.7.0_f0.6.0_post_status]
     const STATUS_DELETE = -1;
     const STATUS_MODERATE = 0;
     const STATUS_ACTIVE = 1;
-    ///[http://www.brainbook.cc]
 
     /**
      * @inheritdoc
@@ -75,7 +71,7 @@ class Post extends ActiveRecord
                 'updatedByAttribute' => 'updated_by',
             ],
 
-            ///[yii2-brainblog_v0.4.1_f0.3.3_tag]creocoder/yii2-taggable
+            ///[yongtiger/yii2-taggable]
             'taggable' => [
                 'class' => \yongtiger\taggable\TaggableBehavior::className(),
                 // 'tagValuesAsArray' => false,
@@ -83,22 +79,6 @@ class Post extends ActiveRecord
                 // 'tagValueAttribute' => 'name',
                 // 'tagFrequencyAttribute' => 'frequency',
             ],
-
-            ///[v0.1.3 (ADD# yongtiger\comment\behaviors)]///[v0.1.4 (CHG# comment sort)]
-            // 'comment' => [
-            //     'class' => \yongtiger\comment\behaviors\CommentBehavior::className(),
-            //     'config' => [
-            //         'dataProviderConfig' => [
-            //             'pagination' => [
-            //                 // 'pageParam' => 'comment-page',
-            //                 // 'pageSizeParam' => 'comment-per-page',
-            //                 'pageSize' => 10,
-            //                 // 'pageSizeLimit' => [1, 50],
-            //             ],
-            //         ],
-            //         'sort' => 'created-at-asc',
-            //     ],
-            // ],
         ];
     }
 
@@ -114,9 +94,9 @@ class Post extends ActiveRecord
             [['category_id'], 'exist', 'skipOnError' => true, 'targetClass' => Category::className(), 'targetAttribute' => ['category_id' => 'id']],
             [['content_id'], 'exist', 'skipOnError' => true, 'targetClass' => Content::className(), 'targetAttribute' => ['content_id' => 'id']],
 
-            ['tagValues', 'safe'],  ///[yii2-brainblog_v0.4.1_f0.3.3_tag]creocoder/yii2-taggable
+            ['tagValues', 'safe'],  ///[yongtiger/yii2-taggable]
 
-            ['status', 'default', 'value' => self::STATUS_ACTIVE],  ///[yii2-brainblog_v0.7.0_f0.6.0_post_status]
+            ['status', 'default', 'value' => self::STATUS_ACTIVE],
 
         ];
     }
@@ -133,13 +113,12 @@ class Post extends ActiveRecord
             'summary' => 'Summary',
             'content_id' => 'Content ID',
             'user_id' => 'User ID',
-            'count' => 'Count',
             'status' => 'Status',
             'created_by' => 'Created By',
             'updated_by' => 'Updated By',
             'created_at' => 'Created At',
             'updated_at' => 'Updated At',
-            'tagValues' => '标签',
+            'tagValues' => 'Tag Values',
         ];
     }
 
@@ -176,14 +155,6 @@ class Post extends ActiveRecord
     }
 
     /**
-     * @return \yii\db\ActiveQuery
-     */
-    // public function getPostTagAssns()///???????????
-    // {
-    //     return $this->hasMany(PostTagAssn::className(), ['post_id' => 'id']);
-    // }
-
-    /**
      * @inheritdoc
      * @return PostQuery the active query used by this AR class.
      */
@@ -192,8 +163,7 @@ class Post extends ActiveRecord
         return new PostQuery(get_called_class());
     }
 
-
-    ///[yii2-brainblog_v0.4.1_f0.3.3_tag]creocoder/yii2-taggable
+    ///[yongtiger/yii2-taggable]
     public function transactions()
     {
         return [
@@ -206,6 +176,14 @@ class Post extends ActiveRecord
         return $this->hasMany(Tag::className(), ['id' => 'tag_id'])
             ->viaTable(PostTagAssn::tableName(), ['post_id' => 'id']);
     }
-    ///[http://www.brainbook.cc]
 
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getPostTagAssns()
+    {
+        return $this->hasMany(PostTagAssn::className(), ['post_id' => 'id']);
+    }
+    ///[http://www.brainbook.cc]
+    
 }
