@@ -34,8 +34,8 @@ use yii\behaviors\BlameableBehavior;
  * @property Category $category
  * @property Content $content
  * @property User $user
- * @property PostTagAssn[] $postTagAssns
- * @property Tag[] $tags
+ * @property PostTagAssn[] $getPostTagAssns ///[yongtiger/yii2-taggable]
+ * @property Tag[] $tags    ///[yongtiger/yii2-taggable]
  */
 class Post extends ActiveRecord
 {
@@ -88,10 +88,10 @@ class Post extends ActiveRecord
     public function rules()
     {
         return [
-            [['category_id', 'content_id', 'count', 'status'], 'integer'],
+            [['category_id', 'content_id', 'status'], 'integer'],
             [['title'], 'required'],
             [['title', 'summary'], 'string', 'max' => 255],
-            [['category_id'], 'exist', 'skipOnError' => true, 'targetClass' => Category::className(), 'targetAttribute' => ['category_id' => 'id']],
+            [['category_id'], 'exist', 'skipOnError' => true, 'targetClass' => \yongtiger\category\Module::instance()->categoryModelClass, 'targetAttribute' => ['category_id' => 'id']],
             [['content_id'], 'exist', 'skipOnError' => true, 'targetClass' => Content::className(), 'targetAttribute' => ['content_id' => 'id']],
 
             ['tagValues', 'safe'],  ///[yongtiger/yii2-taggable]
@@ -118,7 +118,7 @@ class Post extends ActiveRecord
             'updated_by' => 'Updated By',
             'created_at' => 'Created At',
             'updated_at' => 'Updated At',
-            'tagValues' => 'Tag Values',
+            'tagValues' => 'Tag',    ///[yongtiger/yii2-taggable]
         ];
     }
 

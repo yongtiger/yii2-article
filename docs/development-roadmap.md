@@ -1,5 +1,19 @@
 # Development roadmap
 
+## v0.2.2 (TYPO#)
+
+* [yongtiger/yii2-comment]
+- `\views\post\view.php` (66)
+
+* [TagsinputWidget]
+- `\views\post\_form.php` (22)
+
+* [yongtiger/yii2-taggable]
+- `\models\Post.php` (74, 97, 121, 166-187)
+- `\models\PostQuery.php` (25)
+- `\models\PostTagAssn.php`
+
+
 ## v0.2.1 (remove yii2-tree, using normal nested sets catogory)
 
 

@@ -1,4 +1,4 @@
-<?php ///[Yii2 article]
+<?php ///[yongtiger/yii2-taggable]
 
 /**
  * Yii2 article
@@ -22,7 +22,6 @@ use yii\db\ActiveRecord;
  * @property string $name
  * @property integer $frequency
  *
- * @property CategoryTagAssn[] $categoryTagAssns
  * @property PostTagAssn[] $postTagAssns
  * @property Post[] $posts
  */
@@ -58,14 +57,6 @@ class Tag extends ActiveRecord
             'name' => 'Name',
             'frequency' => 'Frequency',
         ];
-    }
-
-    /**
-     * @return \yii\db\ActiveQuery
-     */
-    public function getCategoryTagAssns()
-    {
-        return $this->hasMany(CategoryTagAssn::className(), ['tag_id' => 'id']);
     }
 
     /**

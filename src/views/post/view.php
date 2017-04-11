@@ -15,17 +15,6 @@ $this->params['breadcrumbs'][] = $this->title;
 
 $postModelClassName = $postModel->className();
 
-///[Syntaxhighlighter]///?????enable
-$ueditorParseRootPath = Yii::$app->assetManager->getPublishedUrl('@yongtiger/ueditor/assets');
-\yongtiger\ueditor\UeditorParseAsset::register($this);
-$this->registerJs(
-<<<JS
-PARSER.sh_config.sh_js="shCore.min.js";
-PARSER.sh_config.sh_theme="Emacs";    ///choose themes: `Default,Django,Eclipse,Emacs,FadeToGrey,MDUltra,Midnight,RDark`
-uParse(".post-view",{rootPath: "{$ueditorParseRootPath}"});
-JS
-, View::POS_END);
-
 ?>
 <div class="post-view">
 
@@ -58,7 +47,6 @@ JS
                 'label'=>'用户名',
                 'value'=>$postModel->user->username,
             ],
-            'count',
             [
                 'label'=>'状态',
                 'value'=>[
@@ -74,7 +62,7 @@ JS
 
 </div>
 
-<!--///[comment]-->
+<!--///[yongtiger/yii2-comment]-->
 <?php 
 echo \yongtiger\comment\widgets\Comment::widget([
     'model' => $postModel,

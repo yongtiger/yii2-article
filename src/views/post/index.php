@@ -30,7 +30,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'title',
             'summary',
 
-            ///[yii2-brainblog_v0.11.0_f0.10.1_post_search]Test!
+            ///[post search]Test!
             ///'content_id',
             // [
             //     'attribute' => 'content_body',
@@ -41,7 +41,6 @@ $this->params['breadcrumbs'][] = $this->title;
             // ],
 
             // 'user_id',
-            // 'count',
             // 'status',
             // 'created_at',
             // 'updated_at',

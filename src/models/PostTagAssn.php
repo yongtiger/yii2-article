@@ -1,4 +1,4 @@
-<?php ///[Yii2 article]
+<?php ///[yongtiger/yii2-taggable]
 
 /**
  * Yii2 article

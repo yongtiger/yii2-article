@@ -17,7 +17,7 @@ use yongtiger\article\Module;
 
     <?= $form->field($postModel, 'category_id')->textInput() ?>
 
-    <!--///[yii2-brainblog_v0.4.5_f0.4.4_tag_input_improve]-->
+    <!--///[TagsinputWidget]-->
     <?= $form->field($postModel, 'tagValues')->widget('\yuncms\tag\widgets\TagsinputWidget', [
         'model' => $postModel, 'options' => ['value' => $postModel->isNewRecord ? '' : $postModel->tagValues]
     ]); ?>
@@ -36,9 +36,6 @@ use yongtiger\article\Module;
         }
     ?>
 
-    <?= $form->field($postModel, 'count')->textInput() ?>
-
-    <!--///[yii2-brainblog_v0.7.0_f0.6.0_post_status]-->
     <?php echo $form->field($postModel, 'status')->dropDownList(
             [Post::STATUS_DELETE => 'STATUS_DELETE', Post::STATUS_MODERATE => 'STATUS_MODERATE', Post::STATUS_ACTIVE => 'STATUS_ACTIVE'], 
             ['prompt'=>'Select...']

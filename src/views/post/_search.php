@@ -1,5 +1,4 @@
 <?php
-///[yii2-brainblog_v0.11.0_f0.10.1_post_search]
 use yii\helpers\Html;
 ?>
 
@@ -17,4 +16,3 @@ use yii\helpers\Html;
     <?= Html::endForm(); ?>
 
 </div>
-<!-- ///[http://www.brainbook.cc] -->
