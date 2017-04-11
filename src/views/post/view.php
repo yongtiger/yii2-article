@@ -3,6 +3,7 @@
 use yii\helpers\Html;
 use yii\widgets\DetailView;
 use yii\web\View;
+use yongtiger\article\Module;
 
 /* @var $this yii\web\View */
 /* @var $postModel yongtiger\article\models\Post */
@@ -10,7 +11,7 @@ use yii\web\View;
 /* @var $postModelClassName string */
 
 $this->title = $postModel->title;
-$this->params['breadcrumbs'][] = ['label' => 'Posts', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => Module::t('message', 'Posts'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 
 $postModelClassName = $postModel->className();
@@ -21,11 +22,11 @@ $postModelClassName = $postModel->className();
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a('Update', ['update', 'id' => $postModel->id], ['class' => 'btn btn-primary']); ?>
-        <?= Html::a('Delete', ['delete', 'id' => $postModel->id], [
+        <?= Html::a(Module::t('message', 'Update'), ['update', 'id' => $postModel->id], ['class' => 'btn btn-primary']); ?>
+        <?= Html::a(Module::t('message', 'Delete'), ['delete', 'id' => $postModel->id], [
             'class' => 'btn btn-danger',
             'data' => [
-                'confirm' => 'Are you sure you want to delete this item?',
+                'confirm' => Module::t('message', 'Are you sure you want to delete this item?'),
                 'method' => 'post',
             ],
         ]); ?>
@@ -39,24 +40,24 @@ $postModelClassName = $postModel->className();
             'title',
             'summary', ///?????'summary:html',
             [
-                'label'=>'正文',
-                'format'=>'raw',    ///@see http://www.yiiframework.com/doc-2.0/guide-output-formatting.html#other
-                'value'=>$postModel->content->body,
+                'label' => Module::t('message', 'Content'),
+                'format' => 'raw',    ///@see http://www.yiiframework.com/doc-2.0/guide-output-formatting.html#other
+                'value' => $postModel->content->body,
             ],
             [
-                'label'=>'用户名',
-                'value'=>$postModel->user->username,
+                'label' => Module::t('message', 'Username'),
+                'value' => $postModel->user->username,
             ],
             [
-                'label'=>'状态',
-                'value'=>[
-                    $postModelClassName::STATUS_DELETE => 'STATUS_DELETE',
-                    $postModelClassName::STATUS_MODERATE => 'STATUS_MODERATE',
-                    $postModelClassName::STATUS_ACTIVE => 'STATUS_ACTIVE',
+                'label' => Module::t('message', 'Status'),
+                'value' => [
+                    $postModelClassName::STATUS_DELETE => Module::t('message', 'STATUS_DELETE'),
+                    $postModelClassName::STATUS_MODERATE => Module::t('message', 'STATUS_MODERATE'),
+                    $postModelClassName::STATUS_ACTIVE => Module::t('message', 'STATUS_ACTIVE'),
                 ][$postModel->status]
             ],
-            'created_at',
-            'updated_at',
+            'created_at:date',
+            'updated_at:date',
         ],
     ]); ?>
 

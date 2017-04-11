@@ -16,6 +16,7 @@ use Yii;
 use yii\db\ActiveRecord;
 use yii\behaviors\TimestampBehavior;
 use yii\behaviors\BlameableBehavior;
+use yongtiger\article\Module;
 
 /**
  * This is the model class for table "content".
@@ -72,12 +73,12 @@ class Content extends ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => 'ID',
-            'body' => 'Body',
-            'created_by' => 'Created By',
-            'updated_by' => 'Updated By',
-            'created_at' => 'Created At',
-            'updated_at' => 'Updated At',
+            'id' => Module::t('message', 'ID'),
+            'body' => Module::t('message', 'Body'),
+            'created_by' => Module::t('message', 'Created By'),
+            'updated_by' => Module::t('message', 'Updated By'),
+            'created_at' => Module::t('message', 'Created At'),
+            'updated_at' => Module::t('message', 'Updated At'),
         ];
     }
 

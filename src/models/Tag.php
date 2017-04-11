@@ -14,6 +14,7 @@ namespace yongtiger\article\models;
 
 use Yii;
 use yii\db\ActiveRecord;
+use yongtiger\article\Module;
 
 /**
  * This is the model class for table "tag".
@@ -53,9 +54,9 @@ class Tag extends ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => 'ID',
-            'name' => 'Name',
-            'frequency' => 'Frequency',
+            'id' => Module::t('message', 'ID'),
+            'name' => Module::t('message', 'Name'),
+            'frequency' => Module::t('message', 'Frequency'),
         ];
     }
 

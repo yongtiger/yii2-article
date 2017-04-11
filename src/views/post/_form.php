@@ -37,12 +37,12 @@ use yongtiger\article\Module;
     ?>
 
     <?php echo $form->field($postModel, 'status')->dropDownList(
-            [Post::STATUS_DELETE => 'STATUS_DELETE', Post::STATUS_MODERATE => 'STATUS_MODERATE', Post::STATUS_ACTIVE => 'STATUS_ACTIVE'], 
-            ['prompt'=>'Select...']
+            [Post::STATUS_DELETE => Module::t('message', 'STATUS_DELETE'), Post::STATUS_MODERATE => Module::t('message', 'STATUS_MODERATE'), Post::STATUS_ACTIVE => Module::t('message', 'STATUS_ACTIVE')], 
+            ['prompt' => Module::t('message', '(Select ...)')]
     ); ?>
 
     <div class="form-group">
-        <?= Html::submitButton($postModel->isNewRecord ? 'Create' : 'Update', ['class' => $postModel->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
+        <?= Html::submitButton($postModel->isNewRecord ? Module::t('message', 'Create') : Module::t('message', 'Update'), ['class' => $postModel->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>

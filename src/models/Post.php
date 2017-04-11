@@ -16,6 +16,7 @@ use Yii;
 use yii\db\ActiveRecord;
 use yii\behaviors\TimestampBehavior;
 use yii\behaviors\BlameableBehavior;
+use yongtiger\article\Module;
 
 /**
  * This is the model class for table "post".
@@ -107,18 +108,18 @@ class Post extends ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => 'ID',
-            'category_id' => 'Category ID',
-            'title' => 'Title',
-            'summary' => 'Summary',
-            'content_id' => 'Content ID',
-            'user_id' => 'User ID',
-            'status' => 'Status',
-            'created_by' => 'Created By',
-            'updated_by' => 'Updated By',
-            'created_at' => 'Created At',
-            'updated_at' => 'Updated At',
-            'tagValues' => 'Tag',    ///[yongtiger/yii2-taggable]
+            'id' => Module::t('message', 'ID'),
+            'category_id' => Module::t('message', 'Category ID'),
+            'title' => Module::t('message', 'Title'),
+            'summary' => Module::t('message', 'Summary'),
+            'content_id' => Module::t('message', 'Content ID'),
+            'user_id' => Module::t('message', 'User ID'),
+            'status' => Module::t('message', 'Status'),
+            'created_by' => Module::t('message', 'Created By'),
+            'updated_by' => Module::t('message', 'Updated By'),
+            'created_at' => Module::t('message', 'Created At'),
+            'updated_at' => Module::t('message', 'Updated At'),
+            'tagValues' => Module::t('message', 'Tag'),    ///[yongtiger/yii2-taggable]
         ];
     }
 
