@@ -1,4 +1,4 @@
-# Yii2-article v0.3.0 (#ADD category)
+# Yii2-article v0.3.1 (#ADD category_id)
 
 [![Latest Stable Version](https://poser.pugx.org/yongtiger/yii2-article/v/stable)](https://packagist.org/packages/yongtiger/yii2-article)
 [![Total Downloads](https://poser.pugx.org/yongtiger/yii2-article/downloads)](https://packagist.org/packages/yongtiger/yii2-article) 

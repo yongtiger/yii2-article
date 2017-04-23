@@ -59,7 +59,7 @@ class PostController extends Controller
         //             'label' => $item['name'],
         //             // 'sort' => $item['sort'],     ///for adjacency-list
         //             // 'sort' => $item['lft'],      ///for nested-sets
-        //             'url' => [$this->id . '/' . $this->defaultAction, 'cat_id' => $item['id']],    ///Note: Cannot be `Url::to()`! Otherwise, it will not be actived. @see [[yii\widgets\Menu::isItemActive($item)]]
+        //             'url' => [$this->id . '/' . $this->defaultAction, 'category_id' => $item['id']],    ///Note: Cannot be `Url::to()`! Otherwise, it will not be actived. @see [[yii\widgets\Menu::isItemActive($item)]]
         //             // 'icon' => 'fa fa-cog',
         //         ];
         //     },
@@ -74,7 +74,7 @@ class PostController extends Controller
                     'text' => $item['name'],
                     // 'sort' => $item['sort'],     ///for adjacency-list
                     // 'sort' => $item['lft'],      ///for nested-sets
-                    'href' => [$this->id . '/' . $this->defaultAction, 'cat_id' => $item['id']],    ///Note: Cannot be `Url::to()`! Otherwise, it will not be actived. @see [[yii\widgets\Menu::isItemActive($item)]]
+                    'href' => [$this->id . '/' . $this->defaultAction, 'category_id' => $item['id']],    ///Note: Cannot be `Url::to()`! Otherwise, it will not be actived. @see [[yii\widgets\Menu::isItemActive($item)]]
                     // 'icon' => 'fa fa-cog',
                 ];
             },
