@@ -27,6 +27,11 @@ class Module extends \yii\base\Module
     public static $moduleName = 'article';
 
     /**
+     * @inheritdoc
+     */
+    public $defaultRoute = 'post';
+    
+    /**
      * @var callable
      */
     public $editorCallback;

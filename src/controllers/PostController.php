@@ -50,12 +50,47 @@ class PostController extends Controller
      */
     public function actionIndex()
     {
+
+        ///[v0.3.0 (#ADD category)]
+        ///yii\widgets\Menu, yii\jui\Menu, yii\bootstrap\Nav, yongtiger\listgroupmenu\widgets\ListGroupMenu:
+        // $menuItems = \yongtiger\category\models\Category::getTree([
+        //     'map' => function ($item) {
+        //         return [
+        //             'label' => $item['name'],
+        //             // 'sort' => $item['sort'],     ///for adjacency-list
+        //             // 'sort' => $item['lft'],      ///for nested-sets
+        //             'url' => [$this->id . '/' . $this->defaultAction, 'cat_id' => $item['id']],    ///Note: Cannot be `Url::to()`! Otherwise, it will not be actived. @see [[yii\widgets\Menu::isItemActive($item)]]
+        //             // 'icon' => 'fa fa-cog',
+        //         ];
+        //     },
+        //     // 'rootId' => 1,
+        //     // 'sortOrder' => SORT_DESC,
+        // ]);
+
+        ///yongtiger\bootstraptree\widgets\BootstrapTree:
+        $menuItems = \yongtiger\category\models\Category::getTree([
+            'map' => function ($item) {
+                return [
+                    'text' => $item['name'],
+                    // 'sort' => $item['sort'],     ///for adjacency-list
+                    // 'sort' => $item['lft'],      ///for nested-sets
+                    'href' => [$this->id . '/' . $this->defaultAction, 'cat_id' => $item['id']],    ///Note: Cannot be `Url::to()`! Otherwise, it will not be actived. @see [[yii\widgets\Menu::isItemActive($item)]]
+                    // 'icon' => 'fa fa-cog',
+                ];
+            },
+            // 'rootId' => 1,
+            // 'sortOrder' => SORT_DESC,
+            'itemsName' => 'nodes',
+        ]);
+        ///[http://www.brainbook.cc]
+
         $searchModel = new PostSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
+            'menuItems' => $menuItems,  ///[v0.3.0 (#ADD category)]
         ]);
     }
 
