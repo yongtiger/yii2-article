@@ -65,6 +65,9 @@ class PostSearch extends Post
         ]);
 
         $this->load($params);
+        
+        ///[v0.3.1 (#ADD category_id)]
+        $this->category_id = isset($params['category_id']) ? $params['category_id'] : null;
 
         if (!$this->validate()) {
             // uncomment the following line if you do not want to return any records when validation fails
@@ -88,7 +91,7 @@ class PostSearch extends Post
 
         ///[post search]
         $query->andFilterWhere(['or', ['like', 'title', $this->keywords], ['like', 'summary', $this->keywords], ['like', 'body', $this->keywords]]);
-        ///$query->createCommand()->rawsql;
+        ///$query->createCommand()->rawsql; ///for test
 
         return $dataProvider;
     }

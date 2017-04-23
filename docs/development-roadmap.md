@@ -2,6 +2,8 @@
 
 ## v0.3.1 (#ADD category_id)
 
+* `\models\PostSearch.php` (69)
+
 
 ## v0.3.0 (#ADD category)
 
