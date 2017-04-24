@@ -50,38 +50,49 @@ class PostController extends Controller
      */
     public function actionIndex()
     {
+        ///[v0.3.2 (#ADD category layout)]
+        $params = Yii::$app->getRequest()->getQueryParams();
+        $categoryId = isset($params['category_id']) ? $params['category_id'] : null;
+        $menuItems = [];
+        if ($categoryId) {
+            ///[v0.3.0 (#ADD category)]
+            ///yii\widgets\Menu, yii\jui\Menu, yii\bootstrap\Nav, yongtiger\listgroupmenu\widgets\ListGroupMenu:
+            // $menuItems = \yongtiger\category\models\Category::getTree([
+            //     'map' => function ($item) {
+            //         return [
+            //             'label' => $item['name'],
+            //             // 'sort' => $item['sort'],     ///for adjacency-list
+            //             // 'sort' => $item['lft'],      ///for nested-sets
+            //             'url' => [$this->id . '/' . $this->defaultAction, 'category_id' => $item['id']],    ///Note: Cannot be `Url::to()`! Otherwise, it will not be actived. @see [[yii\widgets\Menu::isItemActive($item)]]
+            //             // 'icon' => 'fa fa-cog',
+            //         ];
+            //     },
+            //     // 'rootId' => 1,
+            //     // 'sortOrder' => SORT_DESC,
+            // ]);
 
-        ///[v0.3.0 (#ADD category)]
-        ///yii\widgets\Menu, yii\jui\Menu, yii\bootstrap\Nav, yongtiger\listgroupmenu\widgets\ListGroupMenu:
-        // $menuItems = \yongtiger\category\models\Category::getTree([
-        //     'map' => function ($item) {
-        //         return [
-        //             'label' => $item['name'],
-        //             // 'sort' => $item['sort'],     ///for adjacency-list
-        //             // 'sort' => $item['lft'],      ///for nested-sets
-        //             'url' => [$this->id . '/' . $this->defaultAction, 'category_id' => $item['id']],    ///Note: Cannot be `Url::to()`! Otherwise, it will not be actived. @see [[yii\widgets\Menu::isItemActive($item)]]
-        //             // 'icon' => 'fa fa-cog',
-        //         ];
-        //     },
-        //     // 'rootId' => 1,
-        //     // 'sortOrder' => SORT_DESC,
-        // ]);
+            ///yongtiger\bootstraptree\widgets\BootstrapTree:
+            $menuItems = \yongtiger\category\models\Category::getTree([
+                'map' => function ($item) {
+                    return [
+                        'text' => $item['name'],
+                        // 'sort' => $item['sort'],     ///for adjacency-list
+                        // 'sort' => $item['lft'],      ///for nested-sets
+                        'href' => [$this->id . '/' . $this->defaultAction, 'category_id' => $item['id']],    ///Note: Cannot be `Url::to()`! Otherwise, it will not be actived. @see [[yii\widgets\Menu::isItemActive($item)]]
+                        // 'icon' => 'fa fa-cog',
+                    ];
+                },
+                // 'rootId' => 1,
+                // 'sortOrder' => SORT_DESC,
+                'itemsName' => 'nodes',
+            ]);
 
-        ///yongtiger\bootstraptree\widgets\BootstrapTree:
-        $menuItems = \yongtiger\category\models\Category::getTree([
-            'map' => function ($item) {
-                return [
-                    'text' => $item['name'],
-                    // 'sort' => $item['sort'],     ///for adjacency-list
-                    // 'sort' => $item['lft'],      ///for nested-sets
-                    'href' => [$this->id . '/' . $this->defaultAction, 'category_id' => $item['id']],    ///Note: Cannot be `Url::to()`! Otherwise, it will not be actived. @see [[yii\widgets\Menu::isItemActive($item)]]
-                    // 'icon' => 'fa fa-cog',
-                ];
-            },
-            // 'rootId' => 1,
-            // 'sortOrder' => SORT_DESC,
-            'itemsName' => 'nodes',
-        ]);
+            $this->layout = 'category';
+            $this->view->params['category'] = [
+                'categoryId' => $categoryId,
+                'menuItems' => $menuItems,
+            ];
+        }
         ///[http://www.brainbook.cc]
 
         $searchModel = new PostSearch();
@@ -90,7 +101,6 @@ class PostController extends Controller
         return $this->render('index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
-            'menuItems' => $menuItems,  ///[v0.3.0 (#ADD category)]
         ]);
     }
 

@@ -1,5 +1,12 @@
 # Development roadmap
 
+## v0.3.2 (#ADD category layout)
+
+* `\controllers\PostController.php` (54)
+* `\views\post\index.php`
+* `\views\layouts\category.php`
+
+
 ## v0.3.1 (#ADD category_id)
 
 * `\models\PostSearch.php` (69)
