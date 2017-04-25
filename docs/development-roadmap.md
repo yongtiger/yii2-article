@@ -1,5 +1,11 @@
 # Development roadmap
 
+## v0.3.4 (#ADD generateCategoryCallback, displayCategoryCallback)
+
+* `\Module.php` (46)
+* `\views\layouts\category.php`
+
+
 ## v0.3.3 (#ADD categoryModelClass)
 
 * `\Module.php` (41)

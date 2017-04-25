@@ -43,6 +43,16 @@ class Module extends \yii\base\Module
      */
     public $categoryModelClass = 'yongtiger\category\models\Category';
 
+    ///[v0.3.4 (#ADD generateCategoryCallback, displayCategoryCallback)]
+    /**
+     * @var callable
+     */
+    public $generateCategoryCallback;
+    /**
+     * @var callable
+     */
+    public $displayCategoryCallback;
+
     /**
      * @var callable
      */
