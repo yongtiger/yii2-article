@@ -23,7 +23,7 @@
         "yiisoft/yii2-bootstrap": "*",
 
         
-        "yongtiger/yii2-comment": "*",
+        
         "yongtiger/yii2-taggable": "*",
 
         "yuncms/yii2-tag": "*"
