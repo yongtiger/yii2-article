@@ -46,12 +46,7 @@ $this->params['breadcrumbs'][] = $this->title;
             // 'created_at',
             // 'updated_at',
 
-            [
-                'class' => 'yii\grid\ActionColumn',
-                'urlCreator' => function ($action, $model, $key, $index) {  ///[v0.3.2 (#ADD category layout)]
-                    return [$action, 'id' => $key, 'category_id' => $model->category_id];
-                }
-            ],
+            ['class' => 'yii\grid\ActionColumn'],
         ],
     ]); ?>
 

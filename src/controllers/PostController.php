@@ -17,6 +17,7 @@ use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use yii\helpers\StringHelper;
+use yii\helpers\ArrayHelper;
 use yongtiger\article\models\Post;
 use yongtiger\article\models\PostSearch;
 use yongtiger\article\models\Content;
@@ -51,11 +52,8 @@ class PostController extends Controller
     public function actionIndex()
     {
         ///[v0.3.2 (#ADD category layout)]
-        $params = Yii::$app->getRequest()->getQueryParams();
-        if ($categoryId = isset($params['category_id']) ? $params['category_id'] : null) {
-            $this->layout = 'category';
-        }
-        $this->view->params['categoryId'] = $categoryId;
+        $this->view->params['categoryId'] = ArrayHelper::getValue(Yii::$app->getRequest()->getQueryParams(), 'category_id', null);
+        $this->layout = isset($this->view->params['categoryId']) ? 'category' : $this->layout;
 
         $searchModel = new PostSearch();
         $dataProvider = $searchModel->search(Yii::$app->getRequest()->getQueryParams());
@@ -63,27 +61,6 @@ class PostController extends Controller
         return $this->render('index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
-        ]);
-    }
-
-    /**
-     * Displays a single Post model.
-     *
-     * @param integer $id
-     * @return mixed
-     */
-    public function actionView($id)
-    {
-        $postModel = $this->findModel($id);
-
-        ///[v0.3.2 (#ADD category layout)]
-        if (!empty($postModel->category_id)) {
-            $this->layout = 'category';
-        }
-        $this->view->params['categoryId'] = $postModel->category_id;
-
-        return $this->render('view', [
-            'postModel' => $postModel,
         ]);
     }
 
@@ -98,13 +75,10 @@ class PostController extends Controller
     public function actionCreate()
     {
         ///[v0.3.2 (#ADD category layout)]
-        $params = Yii::$app->getRequest()->getQueryParams();
-        $categoryId = isset($params['category_id']) ? $params['category_id'] : null;
-        if (!empty($categoryId)) {
-            $this->layout = 'category';
-        }
-        $this->view->params['categoryId'] = $categoryId;
-        $postModel = new Post(['category_id' => $categoryId]);
+        $this->view->params['categoryId'] = ArrayHelper::getValue(Yii::$app->getRequest()->getQueryParams(), 'category_id', null);
+        $this->layout = isset($this->view->params['categoryId']) ? 'category' : $this->layout;
+
+        $postModel = new Post(['category_id' => $this->view->params['categoryId']]);
         $contentModel = new Content();
 
         if ($this->saveAll($postModel, $contentModel)) {
@@ -131,11 +105,7 @@ class PostController extends Controller
     {
         $postModel = $this->findModel($id);
 
-        ///[v0.3.2 (#ADD category layout)]
-        if (!empty($postModel->category_id)) {
-            $this->layout = 'category';
-        }
-        $this->view->params['categoryId'] = $postModel->category_id;
+        $this->layout = isset($postModel->category_id) ? 'category' : $this->layout;   ///[v0.3.2 (#ADD category layout)]
 
         $contentModel = Content::findOne($postModel->content_id);
         if (!isset($contentModel)) {
@@ -153,6 +123,23 @@ class PostController extends Controller
     }
 
     /**
+     * Displays a single Post model.
+     *
+     * @param integer $id
+     * @return mixed
+     */
+    public function actionView($id)
+    {
+        $postModel = $this->findModel($id);
+
+        $this->layout = isset($postModel->category_id) ? 'category' : $this->layout;   ///[v0.3.2 (#ADD category layout)]
+
+        return $this->render('view', [
+            'postModel' => $postModel,
+        ]);
+    }
+
+    /**
      * Deletes an existing Post model and its corresponding Content model.
      *
      * If deletion is successful, the browser will be redirected to the 'index' page.
@@ -165,7 +152,9 @@ class PostController extends Controller
     public function actionDelete($id)
     {
         $postModel = $this->findModel($id);
+
         $categoryId = $postModel->category_id;  ///[v0.3.2 (#ADD category layout)]
+
         $contentModel = Content::findOne($postModel->content_id);
         if (!isset($contentModel)) {
             throw new NotFoundHttpException("The content was not found.");
