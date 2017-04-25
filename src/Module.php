@@ -37,6 +37,12 @@ class Module extends \yii\base\Module
      */
     public $layout = '@app/views/layouts/main.php';
     
+    ///[v0.3.3 (#ADD categoryModelClass)]
+    /**
+     * @var string the category model class name
+     */
+    public $categoryModelClass = 'yongtiger\category\models\Category';
+
     /**
      * @var callable
      */

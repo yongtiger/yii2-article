@@ -92,7 +92,7 @@ class Post extends ActiveRecord
             [['category_id', 'content_id', 'status'], 'integer'],
             [['title'], 'required'],
             [['title', 'summary'], 'string', 'max' => 255],
-            [['category_id'], 'exist', 'skipOnError' => true, 'targetClass' => \yongtiger\category\Module::instance()->modelClass, 'targetAttribute' => ['category_id' => 'id']],
+            [['category_id'], 'exist', 'skipOnError' => true, 'targetClass' => Module::instance()->categoryModelClass, 'targetAttribute' => ['category_id' => 'id']],
             [['content_id'], 'exist', 'skipOnError' => true, 'targetClass' => Content::className(), 'targetAttribute' => ['content_id' => 'id']],
 
             ['tagValues', 'safe'],  ///[yongtiger/yii2-taggable]
@@ -128,7 +128,7 @@ class Post extends ActiveRecord
      */
     public function getCategory()
     {
-        return $this->hasOne(\yongtiger\category\Module::instance()->modelClass, ['id' => 'category_id']);
+        return $this->hasOne(Module::instance()->categoryModelClass, ['id' => 'category_id']);
     }
 
     /**

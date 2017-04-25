@@ -1,5 +1,11 @@
 # Development roadmap
 
+## v0.3.3 (#ADD categoryModelClass)
+
+* `\Module.php` (41)
+* `\models\Post.php` (95, 131)
+
+
 ## v0.3.2 (#ADD category layout)
 
 * `\Module.php` (34)

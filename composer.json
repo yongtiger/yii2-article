@@ -22,7 +22,7 @@
         "yiisoft/yii2": "*",
         "yiisoft/yii2-bootstrap": "*",
 
-        "yongtiger/yii2-category": "*",
+        
         "yongtiger/yii2-comment": "*",
         "yongtiger/yii2-taggable": "*",
 
