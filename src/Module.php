@@ -53,6 +53,12 @@ class Module extends \yii\base\Module
      */
     public $displayCategoryCallback;
 
+    ///[v0.3.5 (#ADD displayCommentCallback)]
+    /**
+     * @var callable
+     */
+    public $displayCommentCallback;
+
     /**
      * @var callable
      */

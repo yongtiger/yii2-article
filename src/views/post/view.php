@@ -67,33 +67,8 @@ $postModelClassName = $postModel->className();
 
 </div>
 
-<!--///[yongtiger/yii2-comment]-->
-<?php 
-echo \yongtiger\comment\widgets\Comment::widget([
-    'model' => $postModel,
-    'dataProviderConfig' => [
-        'pagination' => [
-            // 'pageParam' => 'comment-page',
-            // 'pageSizeParam' => 'comment-per-page',
-            'pageSize' => 3,
-            // 'pageSizeLimit' => [1, 50],
-        ],
-    ],
-    'sort' => 'created-at-asc',
-]);
-
-///[v0.1.3 (ADD# yongtiger\comment\behaviors)]///[v0.1.4 (CHG# comment sort)]
-// echo $postModelClassName::findOne(5)->displayComment(
-//     [
-//         'dataProviderConfig' => [
-//             'pagination' => [
-//                 // 'pageParam' => 'comment-page',
-//                 // 'pageSizeParam' => 'comment-per-page',
-//                 'pageSize' => 5,
-//                 // 'pageSizeLimit' => [1, 50],
-//             ],
-//         ],
-//         'sort' => 'created-at-asc',
-//     ],
-// );
+<?php ///[v0.3.5 (#ADD displayCommentCallback)]
+    if (is_callable($displayCommentCallback = Module::instance()->displayCommentCallback)) {
+        echo call_user_func($displayCommentCallback, $postModel);
+    }
 ?>

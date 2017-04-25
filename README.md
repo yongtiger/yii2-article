@@ -1,4 +1,4 @@
-# Yii2-article v0.3.4 (#ADD generateCategoryCallback, displayCategoryCallback)
+# Yii2-article v0.3.5 (#ADD displayCommentCallback)
 
 [![Latest Stable Version](https://poser.pugx.org/yongtiger/yii2-article/v/stable)](https://packagist.org/packages/yongtiger/yii2-article)
 [![Total Downloads](https://poser.pugx.org/yongtiger/yii2-article/downloads)](https://packagist.org/packages/yongtiger/yii2-article) 

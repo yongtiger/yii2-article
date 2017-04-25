@@ -31,7 +31,6 @@ use yongtiger\article\Module;
  * @property string $created_at
  * @property string $updated_at
  *
- * @property Comment[] $comments
  * @property Category $category
  * @property Content $content
  * @property User $user

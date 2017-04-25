@@ -1,5 +1,11 @@
 # Development roadmap
 
+## v0.3.5 (#ADD displayCommentCallback)
+
+* `\Module.php` (56)
+* `\views\post\view.php` (70)
+
+
 ## v0.3.4 (#ADD generateCategoryCallback, displayCategoryCallback)
 
 * `\Module.php` (46)
