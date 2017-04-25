@@ -11,7 +11,11 @@ use yongtiger\article\Module;
 /* @var $postModelClassName string */
 
 $this->title = $postModel->title;
-$this->params['breadcrumbs'][] = ['label' => Module::t('message', 'Posts'), 'url' => ['index']];
+if ($postModel->category_id) {
+    $this->params['breadcrumbs'][] = ['label' => Module::t('message', 'Post Category: ') . $postModel->category->name, 'url' => ['index', 'category_id' => $postModel->category_id]];
+} else {
+    $this->params['breadcrumbs'][] = ['label' => Module::t('message', 'Posts'), 'url' => ['index']];
+}
 $this->params['breadcrumbs'][] = $this->title;
 
 $postModelClassName = $postModel->className();

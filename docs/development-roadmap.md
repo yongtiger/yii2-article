@@ -2,9 +2,13 @@
 
 ## v0.3.2 (#ADD category layout)
 
-* `\controllers\PostController.php` (54)
-* `\views\post\index.php`
+* `\Module.php` (34)
+* `\controllers\PostController.php`
 * `\views\layouts\category.php`
+* `\views\post\index.php`
+* `\views\post\update.php`
+* `\views\post\create.php`
+* `\views\post\view.php`
 
 
 ## v0.3.1 (#ADD category_id)

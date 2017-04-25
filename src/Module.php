@@ -30,6 +30,12 @@ class Module extends \yii\base\Module
      * @inheritdoc
      */
     public $defaultRoute = 'post';
+
+    ///[v0.3.2 (#ADD category layout)]
+    /**
+     * @inheritdoc
+     */
+    public $layout = '@app/views/layouts/main.php';
     
     /**
      * @var callable

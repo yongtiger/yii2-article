@@ -128,7 +128,7 @@ class Post extends ActiveRecord
      */
     public function getCategory()
     {
-        return $this->hasOne(\yongtiger\category\models\Category::className(), ['id' => 'category_id']);///////////?????
+        return $this->hasOne(\yongtiger\category\Module::instance()->modelClass, ['id' => 'category_id']);
     }
 
     /**

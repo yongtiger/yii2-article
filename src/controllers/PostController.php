@@ -52,51 +52,13 @@ class PostController extends Controller
     {
         ///[v0.3.2 (#ADD category layout)]
         $params = Yii::$app->getRequest()->getQueryParams();
-        $categoryId = isset($params['category_id']) ? $params['category_id'] : null;
-        $menuItems = [];
-        if ($categoryId) {
-            ///[v0.3.0 (#ADD category)]
-            ///yii\widgets\Menu, yii\jui\Menu, yii\bootstrap\Nav, yongtiger\listgroupmenu\widgets\ListGroupMenu:
-            // $menuItems = \yongtiger\category\models\Category::getTree([
-            //     'map' => function ($item) {
-            //         return [
-            //             'label' => $item['name'],
-            //             // 'sort' => $item['sort'],     ///for adjacency-list
-            //             // 'sort' => $item['lft'],      ///for nested-sets
-            //             'url' => [$this->id . '/' . $this->defaultAction, 'category_id' => $item['id']],    ///Note: Cannot be `Url::to()`! Otherwise, it will not be actived. @see [[yii\widgets\Menu::isItemActive($item)]]
-            //             // 'icon' => 'fa fa-cog',
-            //         ];
-            //     },
-            //     // 'rootId' => 1,
-            //     // 'sortOrder' => SORT_DESC,
-            // ]);
-
-            ///yongtiger\bootstraptree\widgets\BootstrapTree:
-            $menuItems = \yongtiger\category\models\Category::getTree([
-                'map' => function ($item) {
-                    return [
-                        'text' => $item['name'],
-                        // 'sort' => $item['sort'],     ///for adjacency-list
-                        // 'sort' => $item['lft'],      ///for nested-sets
-                        'href' => [$this->id . '/' . $this->defaultAction, 'category_id' => $item['id']],    ///Note: Cannot be `Url::to()`! Otherwise, it will not be actived. @see [[yii\widgets\Menu::isItemActive($item)]]
-                        // 'icon' => 'fa fa-cog',
-                    ];
-                },
-                // 'rootId' => 1,
-                // 'sortOrder' => SORT_DESC,
-                'itemsName' => 'nodes',
-            ]);
-
+        if ($categoryId = isset($params['category_id']) ? $params['category_id'] : null) {
             $this->layout = 'category';
-            $this->view->params['category'] = [
-                'categoryId' => $categoryId,
-                'menuItems' => $menuItems,
-            ];
         }
-        ///[http://www.brainbook.cc]
+        $this->view->params['categoryId'] = $categoryId;
 
         $searchModel = new PostSearch();
-        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+        $dataProvider = $searchModel->search(Yii::$app->getRequest()->getQueryParams());
 
         return $this->render('index', [
             'searchModel' => $searchModel,
@@ -112,8 +74,16 @@ class PostController extends Controller
      */
     public function actionView($id)
     {
+        $postModel = $this->findModel($id);
+
+        ///[v0.3.2 (#ADD category layout)]
+        if (!empty($postModel->category_id)) {
+            $this->layout = 'category';
+        }
+        $this->view->params['categoryId'] = $postModel->category_id;
+
         return $this->render('view', [
-            'postModel' => $this->findModel($id),
+            'postModel' => $postModel,
         ]);
     }
 
@@ -127,13 +97,20 @@ class PostController extends Controller
      */
     public function actionCreate()
     {
-        $postModel = new Post();
+        ///[v0.3.2 (#ADD category layout)]
+        $params = Yii::$app->getRequest()->getQueryParams();
+        $categoryId = isset($params['category_id']) ? $params['category_id'] : null;
+        if (!empty($categoryId)) {
+            $this->layout = 'category';
+        }
+        $this->view->params['categoryId'] = $categoryId;
+        $postModel = new Post(['category_id' => $categoryId]);
         $contentModel = new Content();
 
         if ($this->saveAll($postModel, $contentModel)) {
             return $this->redirect(['view', 'id' => $postModel->id]);
         }
-        
+
         return $this->render('create', [
             'postModel' => $postModel,
             'contentModel' => $contentModel,
@@ -153,6 +130,13 @@ class PostController extends Controller
     public function actionUpdate($id)
     {
         $postModel = $this->findModel($id);
+
+        ///[v0.3.2 (#ADD category layout)]
+        if (!empty($postModel->category_id)) {
+            $this->layout = 'category';
+        }
+        $this->view->params['categoryId'] = $postModel->category_id;
+
         $contentModel = Content::findOne($postModel->content_id);
         if (!isset($contentModel)) {
             throw new NotFoundHttpException("The content was not found.");
@@ -181,6 +165,7 @@ class PostController extends Controller
     public function actionDelete($id)
     {
         $postModel = $this->findModel($id);
+        $categoryId = $postModel->category_id;  ///[v0.3.2 (#ADD category layout)]
         $contentModel = Content::findOne($postModel->content_id);
         if (!isset($contentModel)) {
             throw new NotFoundHttpException("The content was not found.");
@@ -200,7 +185,7 @@ class PostController extends Controller
             throw $e;
         }
 
-        return $this->redirect(['index']);
+        return $this->redirect(['index', 'category_id' => $categoryId]);    ///[v0.3.2 (#ADD category layout)]
     }
 
     /**
