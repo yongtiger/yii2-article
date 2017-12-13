@@ -25,7 +25,7 @@ class PostQuery extends ActiveQuery
     ///[v0.4.0 (move out taggble and tag)]
     public function behaviors()
     {
-        return Module::instance()->postBehaviors;
+        return Module::instance()->postQueryBehaviors;
     }
 
     /*public function active()

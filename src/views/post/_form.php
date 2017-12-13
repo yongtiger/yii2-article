@@ -18,7 +18,7 @@ use yongtiger\article\Module;
     <?= $form->field($postModel, 'category_id')->textInput() ?>
 
     <!--///[v0.4.0 (move out taggble and tag)]-->
-    <?php ///[displayTagInputCallback]
+    <?php
         if (is_callable($tagInput = Module::instance()->displayTagInputCallback)) {
             $field = $form->field($postModel, 'tagValues');
             echo call_user_func($tagInput, $field, $postModel);

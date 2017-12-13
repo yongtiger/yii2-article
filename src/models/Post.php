@@ -34,8 +34,6 @@ use yongtiger\article\Module;
  * @property Category $category
  * @property Content $content
  * @property User $user
- * @property PostTagAssn[] $getPostTagAssns ///[yongtiger/yii2-taggable]
- * @property Tag[] $tags    ///[yongtiger/yii2-taggable]
  */
 class Post extends ActiveRecord
 {
@@ -65,7 +63,7 @@ class Post extends ActiveRecord
                 // 'value' => new \yii\db\Expression('NOW()'),
             ],
 
-            [
+            'blameable' => [
                 'class' => BlameableBehavior::className(),
                 'createdByAttribute' => 'created_by',
                 'updatedByAttribute' => 'updated_by',
@@ -85,8 +83,6 @@ class Post extends ActiveRecord
             [['title', 'summary'], 'string', 'max' => 255],
             [['category_id'], 'exist', 'skipOnError' => true, 'targetClass' => Module::instance()->categoryModelClass, 'targetAttribute' => ['category_id' => 'id']],
             [['content_id'], 'exist', 'skipOnError' => true, 'targetClass' => Content::className(), 'targetAttribute' => ['content_id' => 'id']],
-
-            ['tagValues', 'safe'],  ///[yongtiger/yii2-taggable]
 
             ['status', 'default', 'value' => self::STATUS_ACTIVE],
 
@@ -110,7 +106,11 @@ class Post extends ActiveRecord
             'updated_by' => Module::t('message', 'Updated By'),
             'created_at' => Module::t('message', 'Created At'),
             'updated_at' => Module::t('message', 'Updated At'),
-            'tagValues' => Module::t('message', 'Tag'),    ///[yongtiger/yii2-taggable]
+
+             ///[v0.4.0 (move out taggble and tag)]?????
+            ///@see http://www.yiiframework.com/forum/index.php/topic/2886-does-behavior-override-owners-implementation-or-just-extend-it/
+            //behavior doesn't (can't) override owner's method. behavior mainly enhances owner in two ways: 1. add new methods. 2. respond to events raised in owner.
+            'tagValues' => Module::t('message', 'Tag'),   
         ];
     }
 
@@ -119,7 +119,7 @@ class Post extends ActiveRecord
      */
     public function getCategory()
     {
-        return $this->hasOne(Module::instance()->categoryModelClass, ['id' => 'category_id']);
+        return $this->hasOne(Module::instance()->categoryModelClass, ['id' => 'category_id']);///////////
     }
 
     /**
@@ -147,27 +147,14 @@ class Post extends ActiveRecord
         return new PostQuery(get_called_class());
     }
 
-    ///[yongtiger/yii2-taggable]
+    ///[v0.4.0 (move out taggble and tag)]?????
+    ///@see http://www.yiiframework.com/forum/index.php/topic/2886-does-behavior-override-owners-implementation-or-just-extend-it/
+    //behavior doesn't (can't) override owner's method. behavior mainly enhances owner in two ways: 1. add new methods. 2. respond to events raised in owner. 
     public function transactions()
     {
         return [
             self::SCENARIO_DEFAULT => self::OP_ALL,
         ];
     }
-
-    public function getTags()
-    {
-        return $this->hasMany(Module::instance()->tagModelClass, ['id' => 'tag_id'])
-            ->viaTable(Module::instance()->articlePostTagAssnTableName, ['post_id' => 'id']);
-    }
-
-    /**
-     * @return \yii\db\ActiveQuery
-     */
-    public function getPostTagAssns()
-    {
-        return $this->hasMany(Module::instance()->postTagAssnModelClass, ['post_id' => 'id']);
-    }
-    ///[http://www.brainbook.cc]
     
 }

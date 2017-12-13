@@ -79,21 +79,6 @@ class Module extends \yii\base\Module
      * @var callable
      */
     public $displayTagInputCallback;
-
-    /**
-     * @var string table name
-     */
-    public $articlePostTagAssnTableName = '{{%article_post_tag_assn}}';
-
-    /**
-     * @var string Tag model class name
-     */
-    public $tagModelClass = 'yongtiger\tag\models\Tag';
-
-    /**
-     * @var string PostTagAssn model class name
-     */
-    public $postTagAssnModelClass = 'yongtiger\tag\models\PostTagAssn';
     ///[]
 
     /**
