@@ -13,6 +13,7 @@
 namespace yongtiger\article\models;
 
 use yii\db\ActiveQuery;
+use yongtiger\article\Module;
 
 /**
  * This is the ActiveQuery class for [[Post]].
