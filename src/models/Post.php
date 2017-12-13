@@ -57,7 +57,7 @@ class Post extends ActiveRecord
      */
     public function behaviors()
     {
-        return [
+        return array_merge([
             'timestamp' => [
                 'class' => TimestampBehavior::className(),
                 'createdAtAttribute' => 'created_at',
@@ -71,15 +71,7 @@ class Post extends ActiveRecord
                 'updatedByAttribute' => 'updated_by',
             ],
 
-            ///[yongtiger/yii2-taggable]
-            'taggable' => [
-                'class' => \yongtiger\taggable\TaggableBehavior::className(),
-                // 'tagValuesAsArray' => false,
-                // 'tagRelation' => 'tags',
-                // 'tagValueAttribute' => 'name',
-                // 'tagFrequencyAttribute' => 'frequency',
-            ],
-        ];
+        ], Module::instance()->postBehaviors);  ///[v0.4.0 (move out taggble and tag)]
     }
 
     /**
@@ -165,8 +157,8 @@ class Post extends ActiveRecord
 
     public function getTags()
     {
-        return $this->hasMany(Tag::className(), ['id' => 'tag_id'])
-            ->viaTable(PostTagAssn::tableName(), ['post_id' => 'id']);
+        return $this->hasMany(Module::instance()->tagModelClass, ['id' => 'tag_id'])
+            ->viaTable(Module::instance()->articlePostTagAssnTableName, ['post_id' => 'id']);
     }
 
     /**
@@ -174,7 +166,7 @@ class Post extends ActiveRecord
      */
     public function getPostTagAssns()
     {
-        return $this->hasMany(PostTagAssn::className(), ['post_id' => 'id']);
+        return $this->hasMany(Module::instance()->postTagAssnModelClass, ['post_id' => 'id']);
     }
     ///[http://www.brainbook.cc]
     

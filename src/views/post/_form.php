@@ -17,10 +17,13 @@ use yongtiger\article\Module;
 
     <?= $form->field($postModel, 'category_id')->textInput() ?>
 
-    <!--///[TagsinputWidget]-->
-    <?= $form->field($postModel, 'tagValues')->widget('\yuncms\tag\widgets\TagsinputWidget', [
-        'model' => $postModel, 'options' => ['value' => $postModel->isNewRecord ? '' : $postModel->tagValues]
-    ]); ?>
+    <!--///[v0.4.0 (move out taggble and tag)]-->
+    <?php ///[displayTagInputCallback]
+        if (is_callable($tagInput = Module::instance()->displayTagInputCallback)) {
+            $field = $form->field($postModel, 'tagValues');
+            echo call_user_func($tagInput, $field, $postModel);
+        }
+    ?>
 
     <?= $form->field($postModel, 'title')->textInput(['maxlength' => true]) ?>
 

@@ -1,5 +1,13 @@
 # Development roadmap
 
+## v0.4.0 (move out taggble and tag)
+
+* `\Module.php`
+* `\views\post\_form.php`
+* `\models\Post.php`
+* `\models\PostQuery.php`
+
+
 ## v0.3.5 (#ADD displayCommentCallback)
 
 * `\Module.php` (56)

@@ -13,7 +13,6 @@
 namespace yongtiger\article\models;
 
 use yii\db\ActiveQuery;
-use yongtiger\taggable\TaggableQueryBehavior;
 
 /**
  * This is the ActiveQuery class for [[Post]].
@@ -22,12 +21,10 @@ use yongtiger\taggable\TaggableQueryBehavior;
  */
 class PostQuery extends ActiveQuery
 {
-    ///[yongtiger/yii2-taggable]
+    ///[v0.4.0 (move out taggble and tag)]
     public function behaviors()
     {
-        return [
-            TaggableQueryBehavior::className(),
-        ];
+        return Module::instance()->postBehaviors;
     }
 
     /*public function active()
