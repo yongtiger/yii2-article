@@ -15,8 +15,8 @@ namespace yongtiger\article\controllers;
 use Yii;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
-use yii\filters\AccessControl;
 use yii\filters\VerbFilter;
+use yii\filters\AccessControl;
 use yii\helpers\StringHelper;
 use yii\helpers\ArrayHelper;
 use yongtiger\article\models\Post;
@@ -43,17 +43,23 @@ class PostController extends Controller
                 ],
             ],
 
-            ///[v0.4.1 (ADD# AccessControl)]
             'access' => [
                 'class' => AccessControl::className(),
-                'only' => ['create', 'update', 'delete'],
                 'rules' => [
-                    // allow authenticated users
                     [
                         'allow' => true,
+                        'actions' => ['index', 'view', 'create'],
                         'roles' => ['@'],
                     ],
-                    // everything else is denied
+
+                    [
+                        'actions' => ['update', 'delete'],
+                        'allow' => true,
+                        'roles' => ['updatePost', 'delete'],
+                        'roleParams' => function() {
+                            return ['post' => \yongtiger\article\models\Post::findOne(Yii::$app->request->get('id'))];
+                        },
+                    ],
                 ],
             ],
         ];

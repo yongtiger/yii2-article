@@ -1,4 +1,4 @@
-# Yii2-article v0.4.1 (ADD# AccessControl)
+# Yii2-article v0.4.2 (ADD# access controle)
 
 [![Latest Stable Version](https://poser.pugx.org/yongtiger/yii2-article/v/stable)](https://packagist.org/packages/yongtiger/yii2-article)
 [![Total Downloads](https://poser.pugx.org/yongtiger/yii2-article/downloads)](https://packagist.org/packages/yongtiger/yii2-article) 
