@@ -17,6 +17,8 @@ $this->beginContent(Module::instance()->layout); ?>
 </div>
 <div class="col-sm-9">
 
+	<?= call_user_func([isset($this->params['alertClassName']) ? $this->params['alertClassName'] : 'common\\widgets\\Alert', 'widget']); ?>
+
 	<?= $content ?>
 
 </div>
