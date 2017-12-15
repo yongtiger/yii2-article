@@ -81,6 +81,12 @@ class Module extends \yii\base\Module
     public $displayTagInputCallback;
     ///[]
 
+    ///[Yii2-article v0.4.3 (ADD# postControllerBehaviors)]
+    /**
+     * @var array post controller behaviors
+     */
+    public $postControllerBehaviors = [];
+
     /**
      * @return static
      */

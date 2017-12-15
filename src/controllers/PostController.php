@@ -15,13 +15,12 @@ namespace yongtiger\article\controllers;
 use Yii;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
-use yii\filters\VerbFilter;
-use yii\filters\AccessControl;
 use yii\helpers\StringHelper;
 use yii\helpers\ArrayHelper;
 use yongtiger\article\models\Post;
 use yongtiger\article\models\PostSearch;
 use yongtiger\article\models\Content;
+use yongtiger\article\Module;
 
 /**
  * PostController implements the CRUD actions for Post model.
@@ -35,34 +34,7 @@ class PostController extends Controller
      */
     public function behaviors()
     {
-        return [
-            'verbs' => [
-                'class' => VerbFilter::className(),
-                'actions' => [
-                    'delete' => ['POST'],
-                ],
-            ],
-
-            'access' => [
-                'class' => AccessControl::className(),
-                'rules' => [
-                    [
-                        'allow' => true,
-                        'actions' => ['index', 'view', 'create'],
-                        'roles' => ['@'],
-                    ],
-
-                    [
-                        'actions' => ['update', 'delete'],
-                        'allow' => true,
-                        'roles' => ['updatePost', 'delete'],
-                        'roleParams' => function() {
-                            return ['post' => \yongtiger\article\models\Post::findOne(Yii::$app->request->get('id'))];
-                        },
-                    ],
-                ],
-            ],
-        ];
+        return Module::instance()->postControllerBehaviors; ///[v0.4.3 (ADD# postControllerBehaviors)]
     }
 
     /**
