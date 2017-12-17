@@ -1,25 +1,30 @@
 <?php
 
 use yii\helpers\Html;
+use yii\helpers\StringHelper;
 use yongtiger\article\Module;
 
 /* @var $this yii\web\View */
 /* @var $postModel yongtiger\article\models\Post */
 /* @var $contentModel yongtiger\article\models\Content */
 
-$this->title = Module::t('message', 'Update Post: ') . $postModel->title;
-if ($postModel->category_id) {
-	$this->params['breadcrumbs'][] = ['label' => Module::t('message', 'Post Category: ') . $postModel->category->name, 'url' => ['index', 'category_id' => $postModel->category_id]];
-} else {
-	$this->params['breadcrumbs'][] = ['label' => Module::t('message', 'Posts'), 'url' => ['index']];
-}
-$this->params['breadcrumbs'][] = ['label' => $postModel->title, 'url' => ['view', 'id' => $postModel->id]];
-$this->params['breadcrumbs'][] = Module::t('message', 'Update');
+$this->title = Yii::$app->name;
+
+$label = $postModel->category ? $postModel->category->name : Module::t('message', 'Posts');
+$this->params['breadcrumbs'][] = [
+    'label' => $label, 
+    'url' => ['index', 'category_id' => $postModel->category_id]
+];
+$this->title = $label . ' - ' . $this->title;
+
+$this->params['breadcrumbs'][] = ['label' => StringHelper::truncate($postModel->title, 100), 'url' => ['view', 'id' => $postModel->id]];
+$this->title = StringHelper::truncate($postModel->title, 100) . ' - ' . $this->title;
+
+$this->params['breadcrumbs'][] = Module::t('message', 'Update Post');
+$this->title = Module::t('message', 'Update Post') . ' - ' . $this->title;
 
 ?>
 <div class="post-update">
-
-    <h1><?= Html::encode($this->title) ?></h1>
 
     <?= $this->render('_form', [
         'postModel' => $postModel,

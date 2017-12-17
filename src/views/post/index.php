@@ -1,15 +1,23 @@
 <?php
 
+use Yii;
 use yii\helpers\Html;
 use yii\grid\GridView;
 use yongtiger\article\Module;
+use yongtiger\category\models\Category;
 
 /* @var $this yii\web\View */
 /* @var $searchModel yongtiger\article\models\PostSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = Module::t('message', 'Posts');
-$this->params['breadcrumbs'][] = $this->title;
+$this->title = Yii::$app->name;
+
+$label = ($category = Category::findOne($this->params['categoryId'])) ? $category->name : Module::t('message', 'Posts');
+$this->params['breadcrumbs'][] = [
+    'label' => $label, 
+    'url' => ['index', 'category_id' => $this->params['categoryId']]
+];
+$this->title = $label . ' - ' . $this->title;
 
 ?>
 <div class="post-index">

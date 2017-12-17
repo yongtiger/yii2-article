@@ -7,18 +7,20 @@ use yongtiger\article\Module;
 /* @var $postModel yongtiger\article\models\Post */
 /* @var $contentModel yongtiger\article\models\Content */
 
-$this->title = Module::t('message', 'Create Post');
-if ($postModel->category_id) {
-	$this->params['breadcrumbs'][] = ['label' => Module::t('message', 'Post Category: ') . $postModel->category->name, 'url' => ['index', 'category_id' => $postModel->category_id]];
-} else {
-	$this->params['breadcrumbs'][] = ['label' => Module::t('message', 'Posts'), 'url' => ['index']];
-}
-$this->params['breadcrumbs'][] = $this->title;
+$this->title = Yii::$app->name;
+
+$label = $postModel->category ? $postModel->category->name : Module::t('message', 'Posts');
+$this->params['breadcrumbs'][] = [
+    'label' => $label, 
+    'url' => ['index', 'category_id' => $postModel->category_id]
+];
+$this->title = $label . ' - ' . $this->title;
+
+$this->params['breadcrumbs'][] = Module::t('message', 'Create Post');
+$this->title = Module::t('message', 'Create Post') . ' - ' . $this->title;
 
 ?>
 <div class="post-create">
-
-    <h1><?= Html::encode($this->title) ?></h1>
 
     <?= $this->render('_form', [
         'postModel' => $postModel,

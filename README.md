@@ -1,4 +1,4 @@
-# Yii2-article v0.4.5 (ADD# category_id)
+# Yii2-article v0.4.6 (FIX# breadcrumbs, title)
 
 [![Latest Stable Version](https://poser.pugx.org/yongtiger/yii2-article/v/stable)](https://packagist.org/packages/yongtiger/yii2-article)
 [![Total Downloads](https://poser.pugx.org/yongtiger/yii2-article/downloads)](https://packagist.org/packages/yongtiger/yii2-article) 

@@ -55,11 +55,10 @@ return [
 
 	///\vendor\yongtiger\yii2-article\src\views\post\create.php
 	'Create Post' => '创建文章',
-	'Posts' => '文章',
+	'Posts' => '文章列表',
 
 	///\vendor\yongtiger\yii2-article\src\views\post\update.php
-	'Update Post: ' => '更新文章：',
-	'Post Category: ' => '文章目录：',
+	'Update Post' => '更新文章',
 
 	///\vendor\yongtiger\yii2-article\src\views\post\view.php
 	'Delete' => '删除',

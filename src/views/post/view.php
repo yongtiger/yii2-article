@@ -1,6 +1,7 @@
 <?php
 
 use yii\helpers\Html;
+use yii\helpers\StringHelper;
 use yii\widgets\DetailView;
 use yii\web\View;
 use yongtiger\article\Module;
@@ -10,20 +11,22 @@ use yongtiger\article\Module;
 /* @var $contentModel yongtiger\article\models\Content */
 /* @var $postModelClassName string */
 
-$this->title = $postModel->title;
-if ($postModel->category_id) {
-    $this->params['breadcrumbs'][] = ['label' => Module::t('message', 'Post Category: ') . $postModel->category->name, 'url' => ['index', 'category_id' => $postModel->category_id]];
-} else {
-    $this->params['breadcrumbs'][] = ['label' => Module::t('message', 'Posts'), 'url' => ['index']];
-}
-$this->params['breadcrumbs'][] = $this->title;
+$this->title = Yii::$app->name;
+
+$label = $postModel->category ? $postModel->category->name : Module::t('message', 'Posts');
+$this->params['breadcrumbs'][] = [
+    'label' => $label, 
+    'url' => ['index', 'category_id' => $postModel->category_id]
+];
+$this->title = $label . ' - ' . $this->title;
+
+$this->params['breadcrumbs'][] = ['label' => StringHelper::truncate($postModel->title, 100), 'url' => ['view', 'id' => $postModel->id]];
+$this->title = StringHelper::truncate($postModel->title, 100) . ' - ' . $this->title;
 
 $postModelClassName = $postModel->className();
 
 ?>
 <div class="post-view">
-
-    <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
         <?= Html::a(Module::t('message', 'Update'), ['update', 'id' => $postModel->id], ['class' => 'btn btn-primary']); ?>

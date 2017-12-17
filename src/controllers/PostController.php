@@ -69,7 +69,8 @@ class PostController extends Controller
     {
         ///[v0.3.2 (#ADD category layout)]
         $this->view->params['categoryId'] = ArrayHelper::getValue(Yii::$app->getRequest()->getQueryParams(), 'category_id', null);
-        $this->layout = isset($this->view->params['categoryId']) ? 'category' : $this->layout;
+        ///[v0.4.5 (ADD# category_id)]comment out! there is a bug on [[\yiisoft\yii2\widgets\Menu::isItemActive($item)]]
+        // $this->layout = isset($this->view->params['categoryId']) ? 'category' : $this->layout;
 
         $postModel = new Post(['category_id' => $this->view->params['categoryId']]);
         $contentModel = new Content();
