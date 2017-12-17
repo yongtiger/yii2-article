@@ -98,7 +98,8 @@ class PostController extends Controller
     {
         $postModel = $this->findModel($id);
 
-        $this->layout = isset($postModel->category_id) ? 'category' : $this->layout;   ///[v0.3.2 (#ADD category layout)]
+        ///[v0.4.5 (ADD# category_id)]comment out! there is a bug on [[\yiisoft\yii2\widgets\Menu::isItemActive($item)]]
+        // $this->layout = isset($postModel->category_id) ? 'category' : $this->layout;   ///[v0.3.2 (#ADD category layout)]
 
         $contentModel = Content::findOne($postModel->content_id);
         if (!isset($contentModel)) {
@@ -125,7 +126,8 @@ class PostController extends Controller
     {
         $postModel = $this->findModel($id);
 
-        $this->layout = isset($postModel->category_id) ? 'category' : $this->layout;   ///[v0.3.2 (#ADD category layout)]
+        ///[v0.4.5 (ADD# category_id)]comment out! there is a bug on [[\yiisoft\yii2\widgets\Menu::isItemActive($item)]]
+        // $this->layout = isset($postModel->category_id) ? 'category' : $this->layout;   ///[v0.3.2 (#ADD category layout)]
 
         return $this->render('view', [
             'postModel' => $postModel,

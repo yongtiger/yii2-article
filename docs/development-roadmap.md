@@ -1,5 +1,12 @@
 # Development roadmap
 
+## v0.4.5 (ADD# category_id)
+
+* `\views\post\_search.php`
+* `\controllers\PostController.php`
+Note: there is a bug on [[\yiisoft\yii2\widgets\Menu::isItemActive($item)]].
+
+
 ## v0.4.4 (ADD# alertClassName)
 
 * `\views\layouts\category.php`
