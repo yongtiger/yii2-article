@@ -1,6 +1,6 @@
 # Development roadmap
 
-## v0.4.6 (ADD# category_id)
+## v0.4.6 (FIX# breadcrumbs, title)
 
 * `\views\post\*`
 
